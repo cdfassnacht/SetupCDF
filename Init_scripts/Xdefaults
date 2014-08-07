@@ -1,0 +1,122 @@
+! .Xdefault : default User file to set Xresources.
+!
+! Parts (C) 1996 By Greg J. Badros <gjb@cs.duke.edu>
+! You may use this file as specified under the GNU General Public License
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+! NOTE: exclamation marks (!) indicate comments, hashes (#) 
+! indicate pre-compiler directives.
+!
+! Many applications have their own default Xresources files in the
+! /opt/X11R5/lib/X11/app-defaults/ directory
+!
+! When you run the OpenWindows server, the /opt/X11R5/lib/Xdefaults
+! file will be loaded first. In CDE, the .dt/sessions/home/dt.resources
+! file.
+!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!
+! To enable VMS keymap for Sun4 or Sun5 kbd in xterm and dtterm
+! uncomment two of the following lines: (use qkbd to find kbd type)
+! Sun5 kbd:
+!#include "/usr/local/lib/Startup_Files/xterm5.vms"
+!#include "/usr/local/lib/Startup_Files/dtterm5.vms"
+! Sun4 kbd:
+!#include "/usr/local/lib/Startup_Files/xterm4.vms"
+!#include "/usr/local/lib/Startup_Files/dtterm4.vms"
+!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!
+! FrameMaker default printer:
+!Maker.printerName:	lw4
+!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!
+! Change the XTerm font size:
+!XTerm*font:		8x13
+!
+! DEFINE OPTIONS:
+!   SMALL_SCREEN = force small screen options (automatic for <800 width)
+!   NO_SMALL_SCREEN = force large screen options (automatic for >=800 width)
+!   XAW3DCOLOR = default color for Xaw3d widget scrollbar (gray75 if not set)
+!   BLACK_BG_XTERMS = Use color settings to make colored text visible on
+!                     xterms with a black background
+
+#define XAW3DCOLOR gray75
+
+#define BLACK_BG_XTERMS
+/* #define RECOLOR_XPAINT */
+#define RECOLOR_GHOSTVIEW
+#define RECOLOR_XDVI
+
+#ifdef COLOR
+*customization: -color
+#endif
+
+#if WIDTH<800
+#ifndef NO_SMALL_SCREEN
+#define SMALL_SCREEN
+#endif
+#endif
+
+#ifndef XAW3DCOLOR
+#define XAW3DCOLOR gray75
+#endif
+
+#define WINBACK_COLOR gray75
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!
+! Have xman display index and manpage simultaneously
+!xman*bothShow:		true
+!
+alarm.visible:	True
+emacs.font:     -adobe-courier-medium-r-normal--14-140*
+emacs*font:     -adobe-courier-medium-r-normal--14-140*
+xemacs.font:    -adobe-courier-medium-r-normal--14-140*
+emacs.geometry:         81x37+100+60
+emacs.background:       #000000
+emacs.foreground:       #ffff00
+emacs.cursorColor:      #cccccc
+emacs.pointerColor:     #ffffff
+emacs.font-lock-comment-face.attributeForeground: GreenYellow
+emacs.font-lock-string-face.attributeForeground: cyan
+emacs.font-lock-variable-name-face.attributeForeground: red
+emacs.font-lock-function-name-face.attributeForeground: orange
+emacs.font-lock-reference-face.attributeForeground: red
+Netscape*defaultBackground: White
+OpenWindows.AutoRaise:	False
+OpenWindows.Beep:	notices
+OpenWindows.DragRightDistance:	30
+OpenWindows.IconLocation:	Right
+OpenWindows.MinimalDecor:	Clock
+OpenWindows.MultiClickTimeout:	4
+OpenWindows.PopupJumpCursor:	True
+OpenWindows.SaveWorkspaceTimeout:	60
+OpenWindows.ScrollbarPlacement:	right
+OpenWindows.SelectDisplaysMenu:	False
+OpenWindows.SetInput:	followmouse
+OpenWindows.Use3D:	True
+OpenWindows.Use3DFrames:	True
+OpenWindows.WorkspaceColor:	
+Scrollbar.JumpCursor:	True
+term.enableScrollbar:	True
+xdvi*shrinkFactor:	3
+xman.topBox:	True
+XTerm*background:       #000000
+XTerm*foreground:       #ffff00
+XTerm*scrollBar:        true
+XGterm*background:      #000000
+XGterm*foreground:      #ffff00
+XGterm*scrollBar:       true
+XTerm*font:     9x15
+xterm*font:	9x15
+xterm*boldFont: 9x15bl13
+xterm*scrollBar:	on
+XTerm*saveLines:        1000
+Xterm*VT100.Translations:       #override\n\
+        <KeyPress> L6 : select-end(CLIPBOARD)\n\
+        <KeyPress> L8 : insert-selection(CLIPBOARD)
+!!!!!!!!
+! Make sure the last line ends in a <CR>, otherwise it is ignored
+

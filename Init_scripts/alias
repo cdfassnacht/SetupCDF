@@ -1,0 +1,110 @@
+# alias : User alias file
+#          This file is source'd by .cshrc
+#
+#######################################################################
+
+# These two go together.  They give you the command "back" to
+# return to the previous directory.  Keep both or none:
+
+alias cd           'set old=$cwd; chdir \!*; pwd'   # Allows going back quickly
+alias back         'set back=$old; set old=$cwd; chdir $back; unset back; pwd'
+
+# Safety nets - comment out if you feel brave
+#alias cp    'cp -i'
+#alias rm    'rm -i'
+#alias mv    'mv -i'
+
+# OS-specific aliases
+
+set pyrafcall = "pyraf"
+switch ("`uname -s`")
+   case SunOS:
+      breaksw
+   case Linux:
+      alias ls "ls --color=tty"
+      breaksw
+   case Darwin:
+      alias ls "ls -G"  # Also needs TERM and LSCOLORS (both set in setenv)
+      unalias sm
+      set mysm = `which sm`
+      alias sm "setenv TERM xterm; $mysm; setenv TERM xterm-color"
+      set pyrafcall = "pyraf"
+      breaksw
+   default:
+      echo "Unknown system type"
+      breaksw
+endsw 
+
+
+# Remote logins
+alias chile	"setenv TERM xterm; ssh -X cdf@redorgreen.physics.ucdavis.edu"
+alias efirst	"ssh -Y cdf@efirst.physics.ucdavis.edu"
+alias gallifrey	"ssh -Y fassnach@gallifrey.physics.ucdavis.edu"
+alias glor	"ssh -Y cdf@glorfindel.physics.ucdavis.edu"
+alias gravlens	"ssh -Y fassnach@gravlens.physics.ucdavis.edu"
+alias kea	"ssh -X cdf@kea.physics.ucdavis.edu"
+alias kipac	"ssh -Y fassnach@ki-rh6.slac.stanford.edu"
+alias noric	"pushd $home/.ssh; mv known_hosts foo; grep -v noric foo > known_hosts; popd; ssh -Y fassnach@noric.slac.stanford.edu"
+alias phys	"ssh -X solid.ucdavis.edu -l fassnacht"
+alias redshift	"ssh -Y cdf@redshift.physics.ucdavis.edu"
+alias smitty	"ssh -Y smitty.physics.ucdavis.edu -l fassnacht"
+alias sptoir	"ssh -X cdfassnacht@sptoir.uchicago.edu"
+
+# sftp aliases
+alias ftpchile	"sftp cdf@redorgreen.physics.ucdavis.edu"
+alias ftpefirst	"sftp cdf@efirst.physics.ucdavis.edu"
+alias ftpgall	"sftp fassnach@gallifrey.physics.ucdavis.edu"
+alias ftpglor	"sftp cdf@glorfindel.physics.ucdavis.edu"
+alias ftpgrav	"sftp fassnach@gravlens.physics.ucdavis.edu"
+alias ftpkipac	"sftp fassnach@ki-rh6.slac.stanford.edu"
+alias ftpnoric	"pushd $home/.ssh; mv known_hosts foo; grep -v noric foo > known_hosts; popd; sftp fassnach@noric.slac.stanford.edu"
+alias ftpredshift "sftp cdf@redshift.physics.ucdavis.edu"
+alias ftpsmitty	"sftp fassnacht@smitty.physics.ucdavis.edu"
+alias ftpsptoir	"sftp cdfassnacht@sptoir.uchicago.edu"
+
+# General aliases
+alias aipsemacs "emacs -g 140x45+0+10 -font 7x13 &"
+alias bkgd	"xv -root -max -quit $HOME/cloudless.jpg &"
+alias cleandir  "rm *.log *.mod *.out 13* 01* *.UVF 1642*LIST; ls"
+alias cleano    "rm *.o *~; ls"
+#alias dif	"~mcs/new/difmap"
+#alias difmap    /opt/local/caltech/difmap
+alias enscript	"enscript -M Letter"
+alias f		"finger"
+alias ff        "find . -name '\!-0:1' -exec ls -ldaF {} \;"
+alias gaia	"/usr/local/starlink_gaia/gaia_standalone.csh &"
+alias imhead    "python -W ignore $home/Code/python/imhead.py"
+#alias ir        "cd ~/iraf; cl"
+alias ir        "pushd ~/iraf; echo 'Starting pyraf...'; $pyrafcall"
+alias iraf_stsci "ur_forget; source $HOME/Init_scripts/setenv.iraf_stsci"
+alias irafterm  "xgterm -g 80x40+0-7 -title IRAF -fn 8x13 -sb &"
+#set nicred_setupfile = ${NICRED_DIR}/bin/setup_nicred.csh
+#if (-e $nicred_setupfile) then
+#   set nrcmd = "iraf; source $nicred_setupfile"
+#else
+#   set nrcmd = "echo "No file $nicred_setupfile found""
+#endif
+#alias nicred_setup $nrcmd
+alias homeemacs "emacs -g 81x30+0+10 -font 7x14 &"
+alias latex2pdf	"$home/Code/scripts/latex2pdf.sh"
+#alias mail      "elm"
+alias mailterm	"xterm -g 85x34-0+183 -n "mailterm" -fn 9x15 &"
+#alias moncln	"$mon1608/Scripts/moncln.sh"
+alias lo	"rm core ~/bin/*.trace ~/tmp/*~ ~/Mail/inbox/,*; clear; logout"
+alias lsall	'ls -Fa'            # Show all files, indicate file type
+#alias ll ls -l
+alias lsdot	ls -aFd .\*
+#alias lldot ls -ald .\*
+alias pdflatex_with_bib	"$home/Code/scripts/pdflatex_with_bib.sh"
+alias remap     "xmodmap ~/.xmodmaprc"
+alias rmcln	"rm *~ .*~; ls -aF"
+alias startx8   "startx -- -bpp 8"
+alias xbiff     'xbiff -g 48x48+851+0 -bg "BlueViolet" &'
+alias texcln	"rm *.log *.dvi *.aux *.bbl *.blg *~; ls -aF"
+alias vt        "setenv TERM vt100"
+#
+# 
+#alias cd 'set old=$cwd; chdir \!*; dirs'
+#alias back 'set back=$old; set old=$cwd; chdir $back; unset back; dirs'
+#
+

@@ -1,0 +1,92 @@
+!
+! Variable declarations
+!
+string srcname
+string uvfile; uvfile = " "
+string ofil; ofil = " "
+string modfile; modfile = " "
+string logfil; logfil = " "
+string mapfile; mapfil = " "
+!
+! General plotting flags
+rflags="m3"
+!
+! Tasks to read in UV files
+!
+#+srcobs uvfile = "%%1" // ".UVF"; obs `uvfile`
+#+lensobs uvfile = "/scr/cosmic/vlalens/Data/" // "%%1" // "/" // \
+   "%%2" // ".UVF"; obs `uvfile`
+#+afobs uvfile = "%%1" // ".X.UVF"; obs `uvfile`
+#+ao uvfile = "%%1" // ".X.UVF"; obs `uvfile`; mapunit arcsec; uvwe 0,-1; \
+     rflags="m3"; wtscal 11053.0; select I; radplot; \ 
+     ofil = "%%1" // "_edt.uvf"; wobs `ofil`
+!
+! Tasks to initialize before mapping
+!
+#+afinit mapunit arcsec; uvwe 0,-1; rflags="m3"; wtscal 11053.0; select I
+#+lensinit mapunit arcsec; uvw 4,-2; wtscal 4901.5
+!
+! Mapping shortcuts
+!
+#+fastmap mapsiz %1,%2; uvra 0,206.265*(0.25 - 2/%1)/%2; mapl
+#+tapmap mapsiz %1,%2; uvra 0,51.6/%2; uvtap 0.5,25.8/%2; mapl
+#+setmap mapsiz %1,%2; uvra 0,51.6/%2
+#+modmap modfile = "mod_" // "%%1"; rmod `modfile`; modelfit 0; mapplot
+!
+! AB964-specific macros
+!
+#+abload srcname = "%%1"; \
+         logfil = "%%1" // ".log"; logfile `logfil`; \
+         uvfile = "%%1" // ".UVF";  obs `uvfile`; mapunit arcsec; uvwe 0,-1; \
+         rflags="m3"; wtscal 11053.0; select I; uvaver 60,true; \
+         uvpl; radpl; tpl; radpl; bigmap; smallmap
+#+bigmap uvrange 0,0; mapsiz 2048,4; setrms; mapl
+#+s1 unshift; shift 1000,1000;   mapsiz 1024,3; setrms; mapl
+#+s2 unshift; shift 0,1000;      mapsiz 1024,3; setrms; mapl
+#+s3 unshift; shift -1000,1000;  mapsiz 1024,3; setrms; mapl
+#+s4 unshift; shift 1000,0;      mapsiz 1024,3; setrms; mapl
+#+s5 unshift;                    mapsiz 1024,3; setrms; mapl
+#+s6 unshift; shift -1000,0;     mapsiz 1024,3; setrms; mapl
+#+s7 unshift; shift 1000,-1000;  mapsiz 1024,3; setrms; mapl
+#+s8 unshift; shift 0,-1000;     mapsiz 1024,3; setrms; mapl
+#+s9 unshift; shift -1000,-1000; mapsiz 1024,3; setrms; mapl
+#+smallmap mapsiz 512,3; setrms; mapl
+#+clnmap mapsiz 256,3; mapl cln
+#+mapmod smallmap; addcmp peak(flux,max),true,peak(x,max), \
+         peak(y,max),true; modelfit 5; smallmap
+#+mapgmod smallmap; addcmp peak(flux,max),true,peak(x,max), \
+          peak(y,max),true,imstat(bmaj),true,imstat(bmaj)/imstat(bmin),true, \
+          imstat(bpa),true,1; modelfit 5; smallmap
+#+pcal selfcal false,false,3; radpl; corpl; setrms; mapl
+#+abend radpl; \
+        mapfile = srcname // "_cln.ps/vps"; dev `mapfile`; clnmap; dev /xw; \
+        clnmap; save `srcname`
+!
+! Clean-map level setting
+!
+#+setrms cmul = imstat(rms); \
+         print ""; print "*** Map RMS =",cmul*1000.0,"mJy/beam ***"; \
+         print "Map peak (",peak(x,max),",",peak(y,max),") = ***", \
+            peak(flux,max)*1000.0,"mJy/bm. (",peak(flux,max)/cmul,"sigma) ***" 
+!
+! Self-cal shortcuts
+!
+#+phasecal selfcal false,false,%1
+#+gaincal selfcal true,true,%1
+!
+! Weighting
+!
+#+nat uvw 0,-1
+#+unif uvw 2,-1
+!
+! Model-fitting/Cleaning aids
+!
+#+mx clean %1,0.05; mapl
+#+pk shift -peak(x,max),-peak(y,max)
+#+clr unshift; delwin; clrmod true; uncal true,true
+#+peakmod addcmp peak(flux,max),true,peak(x,max),peak(y,max),true
+#+peakgmod addcmp peak(flux,max),true,peak(x,max),peak(y,max),true, \
+   imstat(bmaj),true,imstat(bmaj)/imstat(bmin),true,imstat(bpa),true,1
+#+addmod addcmp %1,true,%2,%3,true,0.02,true,1,true,0,true,1
+#+addgaus addcmp %1, true, %2*sin(pi/180*%3)/1000, %2*cos(pi/180*%3)/1000, false, %4/1000, false, %5, false, %6, false, 1
+#+adddelt addcmp %1, true, %2*sin(pi/180*%3)/1000, %2*cos(pi/180*%3)/1000

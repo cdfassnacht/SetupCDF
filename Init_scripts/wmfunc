@@ -1,0 +1,39 @@
+#
+#	convenient names for callable window manager functions
+#	typically invoked upon the creation of a new window
+#
+#	dkeith brezinsky
+#	85.12.16M
+#
+#	Added support for X11R4 and tcsh version 5.18.
+#	Unfortunately, the resulting code is virtually incomprehensible.
+#	Don't modify unless you know what you're doing!
+#	-- Manavendra Thakur  10-JUL-90
+
+	# This bit of trickery puts "hostname:directory name" in the
+	# window header every time we change directory.
+	# If running X Windows, it also updates the icon name to reflect
+	# the basename of the current directory.
+
+if ( $?TERM == 1) then
+     switch ("$TERM")
+     case xterm*:
+        if ( $?version == 1 ) then	# tcsh version 5.12 or later
+           alias cwdcmd 'echo -n "]2;"`hostname | sed -e 's/\.stsci\.edu//'`":$cwd" ; echo -n "]1;`basename $cwd`"'
+	else
+	   alias cd 'chdir \!* ; echo -n "]2;"`hostname | sed -e 's/\.stsci\.edu//'`":$cwd" ; echo -n "]1;`basename $cwd`"'
+	endif
+        breaksw
+     case sun*:
+	if ( $?version == 1 ) then	# tcsh version 5.12 or later
+	   alias cwdcmd 'echo -n "]l$cwd\"'
+	else
+	   alias cd 'chdir \!* ; echo -n "]l$cwd\"'
+	endif
+	alias close	'echo "[2t"'		#iconize the window on "close"
+	alias open	'echo "[1t"'		#open from icon on "open"
+	alias iconname	'echo "]L\!*\"'	#give the icon a name
+	alias noname	'echo "]L\"'	#give the icon noname
+        breaksw
+     endsw
+endif

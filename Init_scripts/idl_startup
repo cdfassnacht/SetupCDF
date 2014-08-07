@@ -1,0 +1,4 @@
+; IDL Startup file
+print,''
+print,'Running Startup file'
+astrolib

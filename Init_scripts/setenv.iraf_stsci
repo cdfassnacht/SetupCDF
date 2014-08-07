@@ -1,0 +1,13 @@
+#
+# This file will get sourced with the iraf_stsci command in the alias file.
+# Sourcing this file gives access to the older STScI pyraf/iraf installation
+#  rather than the newer Ureka installation.
+
+switch($osswitch)
+   case macintel:
+      #echo Setting up IRAF for $osswitch
+      set irafcshrc = /usr/stsci/envconfig.mac/cshrc
+      if( -f $irafcshrc) source $irafcshrc
+      #iraf # This command has been put in the alias file
+      breaksw
+endsw

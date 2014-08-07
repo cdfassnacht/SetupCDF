@@ -1,0 +1,365 @@
+# setenv : User environment variable definitions
+#           This file is source'd by .cshrc
+#
+######################################################################
+#
+# Use this file to define your own environment variables with setenv
+#
+# Note:  PATH, MANPATH and LD_LIBRARY_PATH are (probably) already defined,
+#        so you only want to append or prepend to these vars.
+#
+#---------------------------------------------------------------------
+
+#-------------------------------------------------------------------------
+ 
+# Set up basic paths
+ 
+if (! $?PATH) then
+   setenv PATH /usr/bin:/bin
+endif
+# NB: More path setting at very end
+
+if (! $?LD_LIBRARY_PATH) then
+   setenv LD_LIBRARY_PATH /usr/local/lib:/usr/lib
+endif
+
+
+#
+# Setting of operating-system-dependent variables.
+#  NB: Some additional Solaris-based settings are at the end of this file
+#
+
+setenv TERM xterm
+switch ("`uname -s`")
+   case SunOS:                              # Which major SunOS version?
+      set osvers = `/bin/uname -r | /usr/bin/cut -f1 -d. `
+      setenv OSBIN $home/bin/Solaris
+      setenv OSLIB $home/lib/Solaris
+      setenv PGPLOT_DIR $home/pgplot/Solaris
+      breaksw
+   case Linux:
+      set osswitch = "linux"
+      setenv OSBIN $home/bin/Linux
+      setenv OSLIB $home/lib/Linux
+      #setenv PGPLOT_DIR $home/pgplot/Linux
+      setenv PGPLOT_DIR /usr/local/pgplot
+      breaksw
+   case Darwin:
+      setenv TERM xterm-color
+      #setenv PGPLOT_DIR $home/pgplot/macosx
+      #setenv PGPLOT_DIR /usr/local/pgplot
+      if (! $?DYLD_LIBRARY_PATH) then
+         setenv DYLD_LIBRARY_PATH .
+      endif
+      switch ("`printenv MACHTYPE`")
+         case powerpc:
+            set osswitch = "macosx"
+            setenv OSBIN $home/bin/macosx
+            setenv OSLIB $home/lib/macosx
+            setenv PGPLOT_DIR /scisoft/lheasoft/powerpc-apple-darwin7.5.0/lib/
+            setenv SEXTRACTOR /scisoft/terapix/sextractor/
+            setenv DYLD_LIBRARY_PATH ${DYLD_LIBRARY_PATH}:/scisoft/pgplot
+            breaksw
+         case i*86:
+            set osswitch = "macintel"
+            setenv OSBIN $home/bin/macintel
+            setenv OSLIB $home/lib/macintel
+            #setenv PGPLOT_DIR /sw/lib/pgplot
+            setenv PGPLOT_DIR /usr/local/pgplot
+            setenv SEXTRACTOR /usr/local/sextractor/
+            breaksw
+	 case x86_64:
+            set osswitch = "macintel"
+            setenv OSBIN $home/bin/macintel
+            setenv OSLIB $home/lib/macintel
+            #setenv PGPLOT_DIR /sw/lib/pgplot
+            setenv PGPLOT_DIR /usr/local/pgplot
+            setenv DYLD_LIBRARY_PATH ${DYLD_LIBRARY_PATH}:/usr/local/pgplot
+	    setenv DYLD_LIBRARY_PATH ${DYLD_LIBRARY_PATH}:$home/Code/share/Simos_code/gsl-1.11/lib
+	    setenv DYLD_LIBRARY_PATH ${DYLD_LIBRARY_PATH}:/sw/Library/Frameworks/AquaTerm.framework/Versions/A
+            setenv SEXTRACTOR /usr/local/sextractor/
+            breaksw
+	 default:
+            echo "Mac system but unknown MACHTYPE"
+      endsw
+      breaksw
+   default:
+      echo "Unknown system type:"
+      set osswitch = "generic"
+      breaksw
+endsw 
+
+# Setup for unison
+if (-e $home/unison.hostname) then
+ setenv UNISONLOCALHOSTNAME `cat $home/unison.hostname`
+endif
+   
+# General environment variables
+setenv EDITOR   emacs
+setenv LSCOLORS cxfxcxdxbxegedabagacad
+setenv PRINTER  astrodup
+setenv LPDEST   $PRINTER			# Same as LPDEST
+setenv TAPE     /dev/rmt/1mn   # Exabyte on mitty.stsci.edu
+setenv PAGER    less
+setenv LESS     "-e"
+setenv WORK_DIR $home/Work/
+setenv DATA_DIR $home/Data/
+setenv work     $WORK_DIR
+setenv proj     $home/Projects/Active/
+setenv data     $DATA_DIR
+setenv data1    /redorgreen/data1/cdf/
+setenv data2    /redorgreen/data2/cdf/
+setenv gitdir   $work/git
+setenv goods    $home/GOODS/
+setenv lenses   $home/Lenses/
+setenv lensdat  $home/Lenses/Data/
+setenv sharpdat $data/SHARP/
+setenv unidir   $work/Unison
+
+# Classes
+setenv classes  $home/Classes
+setenv classcur $home/Classes/Current
+setenv a10gcur  $classcur/AST10G_or_25
+setenv a10scur  $classcur/AST10S
+setenv ast10g   $classes/Archive/AST10G
+setenv ast10s   $classes/Archive/AST10S
+setenv ast25    $classes/Archive/AST25
+setenv phy153   $classes/Archive/PHY153
+setenv p153cur  $classcur/PHY153
+setenv phy266   $classes/PHY266
+setenv p266cur  $classcur/PHY266
+
+# Instrument-specific directories
+setenv chandra $DATA_DIR/Chandra/
+setenv esi     $DATA_DIR/ESI/
+setenv gemini  $DATA_DIR/Gemini/
+setenv hst     $DATA_DIR/HST/
+setenv keckao  $DATA_DIR/Keck_AO/
+setenv lris    $DATA_DIR/LRIS/
+setenv nirspec $DATA_DIR/NIRSPEC/
+setenv p60     $DATA_DIR/P60cam/
+setenv pfcam   $DATA_DIR/PFCam/
+setenv vla     $DATA_DIR/VLA/
+setenv vlba    $DATA_DIR/VLBA/
+
+# Lens monitoring directories
+setenv lensmon $home/Lensmon/
+setenv mon1608 $home/Lensmon/
+setenv w310    $lensmon/af310/Analysis/
+setenv w340    $lensmon/af340/Analysis/
+setenv w922    $lensmon/ab922/Analysis/
+setenv AF310   $lensmon/af310/Reduc
+setenv AF340   $lensmon/af340/Reduc
+setenv DAT340  $lensmon/af340/DATA
+setenv AB922   $lensmon/ab922/Reduc
+
+# git setup
+setenv PATH ${PATH}:/usr/local/git/bin
+
+# CVS setup
+setenv CVS_RSH ssh
+
+# DIFMAP environment variables
+setenv DIFMAP_LOGIN ~/Init_scripts/difmap_startup
+
+# Code source environment variables
+# Note that OSBIN and OSLIB are set in the OS-specific sections above.
+setenv CODEHOME  $home/Code
+setenv OSINC     $home/include
+setenv CDFUTIL   $CODEHOME/src/util_src/
+setenv FITSFNDIR $CODEHOME/src/FITSfuncs/
+setenv SLADIR    $CODEHOME/src/slalib/
+
+# Python setup
+setenv PYTHONPATH $CODEHOME/mwa_python:$CODEHOME/python:$gitdir/CodeCDF/python:/Library/Frameworks/Python.framework/Versions/Current/lib/python2.5/site-packages:/Library/Python/2.5/site-packages
+setenv PYTHONPATH {$PYTHONPATH}:$home/Work/git/masterlens/python
+setenv NUMERIX numpy
+
+# ESO P2PP tool varaibles
+setenv PATH ${PATH}:$CODEHOME/share/p2pp-3.3.1/bin
+
+## Pre-scisoft setup
+#if (! $?DYLD_LIBRARY_PATH) then
+#   setenv DYLD_LIBRARY_PATH /sw/lib
+#else
+#   setenv DYLD_LIBRARY_PATH ${DYLD_LIBRARY_PATH}:/sw/lib
+#endif
+#
+
+# IDL environment variables
+#setenv IDL_LOCATION /usr/local/rsi
+#setenv IDL_LOCATION /Applications/itt
+setenv IDL_LOCATION /usr/local/itt
+if (! $?IDL_PATH) then
+   setenv IDL_PATH +${IDL_LOCATION}:+$CODEHOME/IDL
+else
+   setenv IDL_PATH ${IDL_PATH}:+${IDL_LOCATION}:+$CODEHOME/IDL
+endif
+if (-e $home/Init_scripts/idl_startup) then
+   setenv IDL_STARTUP $home/Init_scripts/idl_startup
+endif
+
+# HAGGLES environment variables
+setenv HAGGLES_DATA_DIR ${DATA_DIR}/Haggles/
+setenv SHAGGLES_DIR ${WORK_DIR}/shaggles
+setenv PATH ${PATH}:${SHAGGLES_DIR}/bin
+setenv IDL_PATH ${IDL_PATH}:${SHAGGLES_DIR}/pro
+
+# SCRIPTUTILS environment variables
+setenv SCRIPTUTILS_DIR ${WORK_DIR}/scriptutils
+setenv PATH ${PATH}:${SCRIPTUTILS_DIR}/bin
+
+# B1608 ACS environment variables
+setenv B1608_DIR ${WORK_DIR}/1608_ACS
+
+# SDFRED2 (SuprimeCam reduction package) variables
+setenv PATH ${PATH}:$CODEHOME/share/sdfred20130924_mf2/bin
+setenv LANG C
+setenv LC_ALL C
+
+# PGPLOT environment variables
+setenv LD_LIBRARY_PATH ${LD_LIBRARY_PATH}:${PGPLOT_DIR}
+if (! $?PGPLOT_FONT) then
+   setenv PGPLOT_FONT $PGPLOT_DIR/grfont.dat
+endif
+if (! $?PGPLOT_RGB) then
+   setenv PGPLOT_RGB  $PGPLOT_DIR/rgb.txt
+endif
+setenv PGPLOT_DEV  /xwindow
+setenv XLIBD  /usr/local/lib
+#setenv PG "-L $PGPLOT_DIR -lpgplot -lX11"
+#setenv PGPLOT "$PGPLOT_DIR/libpgplot.a  $XLIBD/libX11.a" 
+##setenv PGPLOT_IDENT Yes
+
+# AIPS environment variables
+if ( -e /usr/local/aips/LOGIN.CSH ) then
+   source /usr/local/aips/LOGIN.CSH
+   echo "Setting up for AIPS"
+endif
+setenv RUNFIL /home/cdf/aips
+setenv MONMOD /home/cdf/Lensmon/Models
+#setenv AIPS_MSG_EMULATOR xterm
+
+# IRAF variables (Note: old IRAF setup at end of this file)
+setenv crrefer $hst
+setenv jref $hst/jref/
+setenv uref $hst/uref/
+setenv nref $hst/nref/
+
+# NICRED (python version) variables
+setenv NICRED_DIR $CODEHOME/python/nicred_ucsc
+# Actually setting up for nicred is done in the alias file
+
+# GAIA variables
+setenv GAIA_DIR /usr/local/starlink_gaia/star/bin/gaia
+
+# ## TinyTim variables
+# #setenv TINYTIM $CODEHOME/share/tinytim4.4/
+# #alias tiny1 $TINYTIM/tiny1
+# #alias tiny2 $TINYTIM/tiny2
+
+# Starview setup: set this to point to a disk with plenty of space
+#setenv SV_DATA_DIR /new/area/with/lots/of/space/.svdata
+
+#
+# More OS-dependent settings, mostly for Solaris
+#
+
+switch ("`uname -s`")
+    case AIX:
+        set path=( $path /usr/bin/X11)
+        breaksw
+    case HP-UX
+        set path=( $path /usr/bin/X11)
+        breaksw
+    case SunOS:
+        setenv OPENWINHOME /usr/openwin
+        alias openwin '$OPENWINHOME/bin/openwin;logout'
+        set path=($OPENWINHOME/bin $path)
+        setenv LD_LIBRARY_PATH ${LD_LIBRARY_PATH}:$OPENWINHOME/lib
+        setenv MANPATH /usr/man:$OPENWINHOME/man:/usr/local/man
+        switch ("`uname -r`")
+            case 4.*:
+                set path=($path /usr/ucb /usr/lang /usr/etc /usr/local/bin/X11)
+                setenv MANPATH ${MANPATH}:/usr/lang/man
+                setenv LD_LIBRARY_PATH ${LD_LIBRARY_PATH}:/usr/lang/SC0.0
+                breaksw
+            case 5.*:
+                set path=(/opt/SUNWspro/bin /usr/ccs/bin $path /usr/sbin)
+                set path=($path /usr/bin/X11 /usr/local/bin/X11)
+#                setenv LD_LIBRARY_PATH ${LD_LIBRARY_PATH}:/opt/SUNWspro/lib
+                setenv LD_LIBRARY_PATH ${LD_LIBRARY_PATH}:/usr/dt/lib
+                setenv MANPATH ${MANPATH}:/opt/SUNWspro/man:/usr/dt/man
+                breaksw
+        endsw
+        
+endsw
+
+# Finally add to paths, putting the directories most likely to have the
+#  most up-to-date versions of files at the front of the path.
+
+setenv PATH ${OSBIN}:${CODEHOME}/scripts:$home/Lenses/Scripts:/usr/local/bin:${PATH}
+setenv LD_LIBRARY_PATH ${LD_LIBRARY_PATH}:${OSLIB}
+
+##########################################################################
+#
+# Obsolete setups below here
+#
+##########################################################################
+
+## Scisoft setup 
+## Note that scisoft contains a lot of packages that would normally
+##  need their own setups, such as iraf, pgplot, and possibly idl.
+##
+#if( $MACHTYPE == i386) then
+#   setenv SCISOFTDIR /scisoft/i386
+#   setenv SCISOFTINIT /scisoft/all/bin/Setup.csh
+#else
+#   setenv SCISOFTDIR /scisoft
+#   setenv SCISOFTINIT /scisoft/bin/Setup.csh
+#endif
+#if ( -e $SCISOFTINIT ) then
+##   echo Setting up Scisoft
+#   source $SCISOFTINIT
+#endif
+#setenv PATH ${PATH}:/scisoft/pgplot
+# Add scisoft pyraf to python path
+#setenv PYTHONPATH {$PYTHONPATH}:/Applications/scisoft/i386/Packages/Python-2.5.4/Python.framework/Versions/2.5/lib/python2.5/site-packages
+
+# OBSOLETE IRAF setup
+# # Prepare things for IRAF
+# if ($?iraf) then
+#    set irafexists = 1
+# else
+#    set irafexists = 0
+#    if ( -e /usr/local/iraf ) then
+#       setenv iraf /usr/local/iraf/iraf/
+#       if (-f ${iraf}/unix/hlib/irafuser.csh) then
+#          source ${iraf}/unix/hlib/irafuser.csh
+#          set irafexists = 1
+#       endif
+#    endif
+# endif
+# if ($irafexists) then
+#    echo "Setting up for IRAF"
+#    setenv IRAFHLIBD $hbin
+#    switch ("`uname -s`")
+#       case SunOS:
+#          switch ("`uname -r`")
+#             case 4.*:
+#                setenv IRAFLIBD  $iraf/bin.sparc
+#                breaksw
+#             case 5.*:
+#                setenv IRAFLIBD  $iraf/bin.ssun
+#                breaksw
+#          endsw
+#       default:
+#          setenv IRAFLIBD $iraf/bin.$MACH
+#          breaksw
+#    endsw
+# endif
+#setenv IRAFLIB "$IRAFLIBD/libimfort.a $IRAFLIBD/libsys.a $IRAFLIBD/libvops.a $IRAFHLIBD/libos.a"
+# set nicred =  /home/cdf/iraf/Nicred
+# set path = ($path $nicred)
+# setenv NICMOSCALIB ${nicred}/Marcia
+# setenv irafphot $home/iraf/Photometry/

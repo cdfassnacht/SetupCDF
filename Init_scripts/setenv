@@ -124,6 +124,7 @@ setenv a10scur  $classcur/AST10S
 setenv ast10g   $classes/Archive/AST10G
 setenv ast10s   $classes/Archive/AST10S
 setenv ast25    $classes/Archive/AST25
+setenv cosmos   $classcur/COSMOS
 setenv phy153   $classes/Archive/PHY153
 setenv p153cur  $classcur/PHY153
 setenv phy266   $classes/PHY266

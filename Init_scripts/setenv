@@ -109,7 +109,7 @@ setenv proj     $home/Projects/Active/
 setenv data     $DATA_DIR
 setenv data1    /redorgreen/data1/cdf/
 setenv data2    /redorgreen/data2/cdf/
-setenv gitdir   $work/git
+setenv gitdir   $home/git
 setenv goods    $home/GOODS/
 setenv lenses   $home/Lenses/
 setenv lensdat  $home/Lenses/Data/
@@ -170,8 +170,11 @@ setenv CDFUTIL   $CODEHOME/src/util_src/
 setenv FITSFNDIR $CODEHOME/src/FITSfuncs/
 setenv SLADIR    $CODEHOME/src/slalib/
 
+# Enthought canopy setup
+setenv PATH $home/canopy/bin:${PATH}
+
 # Python setup
-setenv PYTHONPATH $CODEHOME/mwa_python:$CODEHOME/python:$gitdir/CodeCDF/python:/Library/Frameworks/Python.framework/Versions/Current/lib/python2.5/site-packages:/Library/Python/2.5/site-packages
+setenv PYTHONPATH $CODEHOME/mwa_python:$gitdir/CodeCDF/python:$CODEHOME/python:$gitdir/CodeCDF/python:/Library/Frameworks/Python.framework/Versions/Current/lib/python2.5/site-packages:/Library/Python/2.5/site-packages
 setenv PYTHONPATH {$PYTHONPATH}:$home/Work/git/masterlens/python
 setenv NUMERIX numpy
 

@@ -175,8 +175,8 @@ setenv SLADIR    $CODEHOME/src/slalib/
 setenv PATH $home/canopy/bin:${PATH}
 
 # Python setup
-setenv PYTHONPATH $CODEHOME/mwa_python:$gitdir/CodeCDF/python:$CODEHOME/python:$gitdir/CodeCDF/python:/Library/Frameworks/Python.framework/Versions/Current/lib/python2.5/site-packages:/Library/Python/2.5/site-packages
-setenv PYTHONPATH {$PYTHONPATH}:$home/Work/git/masterlens/python
+setenv PYTHONPATH $CODEHOME/mwa_python:$gitdir/CodeCDF/python:$CODEHOME/python:/Library/Frameworks/Python.framework/Versions/Current/lib/python2.5/site-packages:/Library/Python/2.5/site-packages
+setenv PYTHONPATH {$PYTHONPATH}:$gitdir/masterlens/python
 setenv NUMERIX numpy
 
 # ESO P2PP tool varaibles

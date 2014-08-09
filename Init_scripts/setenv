@@ -140,6 +140,7 @@ setenv lris    $DATA_DIR/LRIS/
 setenv nirspec $DATA_DIR/NIRSPEC/
 setenv p60     $DATA_DIR/P60cam/
 setenv pfcam   $DATA_DIR/PFCam/
+setenv scam    $DATA_DIR/SuprimeCam/
 setenv vla     $DATA_DIR/VLA/
 setenv vlba    $DATA_DIR/VLBA/
 
@@ -171,7 +172,7 @@ setenv CDFUTIL   $CODEHOME/src/util_src/
 setenv FITSFNDIR $CODEHOME/src/FITSfuncs/
 setenv SLADIR    $CODEHOME/src/slalib/
 
-# Enthought canopy setup
+# Enthought canopy python setup
 setenv PATH $home/canopy/bin:${PATH}
 
 # Python setup

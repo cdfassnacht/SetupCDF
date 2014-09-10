@@ -176,7 +176,12 @@ setenv SLADIR    $CODEHOME/src/slalib/
 setenv PATH $home/canopy/bin:${PATH}
 
 # Python setup
-setenv PYTHONPATH $CODEHOME/mwa_python:$gitdir/CodeCDF/python:$CODEHOME/python:/Library/Frameworks/Python.framework/Versions/Current/lib/python2.5/site-packages:/Library/Python/2.5/site-packages
+setenv PYTHONCURR /Library/Frameworks/Python.framework/Versions/Current
+setenv PYTHONSYSLIB $PYTHONCURR/lib/python2.7/site-packages
+setenv PYTHONPATH $CODEHOME/mwa_python:$gitdir/CodeCDF/python
+setenv PYTHONPATH {$PYTHONPATH}:$gitdir/SuprimeCam/python:$CODEHOME/python
+setenv PYTHONPATH {$PYTHONPATH}:$PYTHONSYSLIB
+setenv PYTHONPATH {$PYTHONPATH}:/Library/Python/2.5/site-packages
 setenv PYTHONPATH {$PYTHONPATH}:$gitdir/masterlens/python
 setenv NUMERIX numpy
 

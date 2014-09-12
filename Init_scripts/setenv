@@ -179,7 +179,9 @@ setenv PATH $home/canopy/bin:${PATH}
 setenv PYTHONCURR /Library/Frameworks/Python.framework/Versions/Current
 setenv PYTHONSYSLIB $PYTHONCURR/lib/python2.7/site-packages
 setenv PYTHONPATH $CODEHOME/mwa_python:$gitdir/CodeCDF/python
-setenv PYTHONPATH {$PYTHONPATH}:$gitdir/SuprimeCam/python:$CODEHOME/python
+setenv PYTHONPATH {$PYTHONPATH}:$gitdir/SHARP/python
+setenv PYTHONPATH {$PYTHONPATH}:$gitdir/SuprimeCam/python
+setenv PYTHONPATH {$PYTHONPATH}:$CODEHOME/python
 setenv PYTHONPATH {$PYTHONPATH}:$PYTHONSYSLIB
 setenv PYTHONPATH {$PYTHONPATH}:/Library/Python/2.5/site-packages
 setenv PYTHONPATH {$PYTHONPATH}:$gitdir/masterlens/python

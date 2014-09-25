@@ -176,15 +176,18 @@ setenv SLADIR    $CODEHOME/src/slalib/
 setenv PATH $home/canopy/bin:${PATH}
 
 # Python setup
-setenv PYTHONCURR /Library/Frameworks/Python.framework/Versions/Current
-setenv PYTHONSYSLIB $PYTHONCURR/lib/python2.7/site-packages
-setenv PYTHONPATH $CODEHOME/mwa_python:$gitdir/CodeCDF/python
-setenv PYTHONPATH {$PYTHONPATH}:$gitdir/SHARP/python
-setenv PYTHONPATH {$PYTHONPATH}:$gitdir/SuprimeCam/python
-setenv PYTHONPATH {$PYTHONPATH}:$CODEHOME/python
-setenv PYTHONPATH {$PYTHONPATH}:$PYTHONSYSLIB
-setenv PYTHONPATH {$PYTHONPATH}:/Library/Python/2.5/site-packages
-setenv PYTHONPATH {$PYTHONPATH}:$gitdir/masterlens/python
+setenv PYTHONSYS   /Library/Frameworks/Python.framework/Versions/Current
+setenv PYTHONSYSLIB $PYTHONSYS/lib/python2.7/site-packages
+#setenv PYTHONPATH {$PYTHONPATH}:/Library/Python/2.5/site-packages
+setenv URPYTHON $home/Ureka/variants/common/lib/python2.7/site-packages
+setenv MYPYTHON $CODEHOME/mwa_python:$gitdir/CodeCDF/python
+setenv MYPYTHON {$MYPYTHON}:$gitdir/SHARP/python
+setenv MYPYTHON {$MYPYTHON}:$gitdir/SuprimeCam/python
+setenv MYPYTHON {$MYPYTHON}:$gitdir/NIRI/python
+setenv MYPYTHON {$MYPYTHON}:$CODEHOME/python
+setenv MYPYTHON {$MYPYTHON}:$gitdir/masterlens/python
+#
+setenv PYTHONPATH {$MYPYTHON}:{$PYTHONSYSLIB}
 setenv NUMERIX numpy
 
 # ESO P2PP tool varaibles

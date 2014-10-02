@@ -109,7 +109,6 @@ setenv proj     $home/Projects/Active/
 setenv data     $DATA_DIR
 setenv data1    /redorgreen/data1/cdf/
 setenv data2    /redorgreen/data2/cdf/
-setenv gitdir   $home/git
 setenv goods    $home/GOODS/
 setenv lenses   $home/Lenses/
 setenv lensdat  $home/Lenses/Data/
@@ -141,6 +140,7 @@ setenv nirspec $DATA_DIR/NIRSPEC/
 setenv p60     $DATA_DIR/P60cam/
 setenv pfcam   $DATA_DIR/PFCam/
 setenv scam    $DATA_DIR/SuprimeCam/
+setenv vhsdir  $DATA_DIR/VHS/
 setenv vla     $DATA_DIR/VLA/
 setenv vlba    $DATA_DIR/VLBA/
 
@@ -157,6 +157,7 @@ setenv AB922   $lensmon/ab922/Reduc
 
 # git setup
 setenv PATH ${PATH}:/usr/local/git/bin
+setenv gitdir   $home/git
 
 # CVS setup
 setenv CVS_RSH ssh

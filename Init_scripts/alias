@@ -100,7 +100,7 @@ alias remap     "xmodmap ~/.xmodmaprc"
 alias rmcln	"rm *~ .*~; ls -aF"
 alias startx8   "startx -- -bpp 8"
 alias xbiff     'xbiff -g 48x48+851+0 -bg "BlueViolet" &'
-alias texcln	"rm *.log *.dvi *.aux *.bbl *.blg *~; ls -aF"
+alias texcln	"rm *.{log,dvi,aux,bbl,blg,nav,out,toc,snm} *~; ls -aF"
 alias ureka     "ur_setup; setenv PYTHONPATH {$MYPYTHON}:{$URPYTHON}"
 alias ureka_forget "ur_forget; setenv PYTHONPATH {$MYPYTHON}:{$URPYTHON}"
 alias vt        "setenv TERM vt100"

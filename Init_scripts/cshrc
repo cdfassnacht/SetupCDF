@@ -98,16 +98,22 @@ test -r /sw/bin/init.csh && source /sw/bin/init.csh
 
 # Setting PATH for EPD-6.3-2
 # The orginal version is saved in .cshrc.pysave
-set path=(/Library/Frameworks/Python.framework/Versions/Current/bin $path)
+#set path=(/Library/Frameworks/Python.framework/Versions/Current/bin $path)
 
 alias ur_setup 'eval `/Users/cdf/.ureka/ur_setup -csh \!*`'
 alias ur_forget 'eval `/Users/cdf/.ureka/ur_forget -csh \!*`'
 
-##
-# Your previous /Users/cdf/.cshrc file was backed up as /Users/cdf/.cshrc.macports-saved_2014-10-07_at_18:05:05
-##
+# Set the default python path.  To change, use the relevant commands that are
+# defined in the alias file (e.g., set_anaconda)
+setenv PYTHONPATH {$MYPYTHON}:{$PYTHONPKGS}
+setenv NUMERIX numpy
+setenv PYTHONBIN {$PYTHONSYSBIN}
+
+# Re-set the temporary path variable
+setenv MYPATH {$PATH}
 
 # MacPorts Installer addition on 2014-10-07_at_18:05:05: adding an appropriate PATH variable for use with MacPorts.
-setenv PATH "/opt/local/bin:/opt/local/sbin:$PATH"
-# Finished adapting your PATH environment variable for use with MacPorts.
+setenv PATH /opt/local/bin:/opt/local/sbin:{$PYTHONBIN}:{$MYPATH}
+
+
 

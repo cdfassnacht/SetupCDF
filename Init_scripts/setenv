@@ -173,14 +173,31 @@ setenv CDFUTIL   $CODEHOME/src/util_src/
 setenv FITSFNDIR $CODEHOME/src/FITSfuncs/
 setenv SLADIR    $CODEHOME/src/slalib/
 
-# Enthought canopy python setup
-setenv PATH $home/canopy/bin:${PATH}
-
 # Python setup
+#==========================
+#
+#   Old system setup
+#   ----------------
 setenv PYTHONSYS   /Library/Frameworks/Python.framework/Versions/Current
-setenv PYTHONSYSLIB $PYTHONSYS/lib/python2.7/site-packages
-#setenv PYTHONPATH {$PYTHONPATH}:/Library/Python/2.5/site-packages
+setenv PYTHONSYSBIN $PYTHONSYS/bin
+setenv PYTHONPKGS  $PYTHONSYS/lib/python2.7/site-packages
+#
+#   Enthought Canopy python setup
+#   -----------------------------
+#setenv EPDBIN	$home/canopy/bin
+#setenv EPDPKGS	
+#
+#   Anaconda python setup
+#   ---------------------
+setenv ANACONDABIN $home/anaconda/bin
+setenv ANACONDAPKGS $home/anaconda/lib/python2.7/site-packages
+#
+#   Ureka python setup
+#   ------------------
 setenv URPYTHON $home/Ureka/variants/common/lib/python2.7/site-packages
+#
+#   My python packages
+#   ------------------
 setenv MYPYTHON $CODEHOME/mwa_python:$gitdir/CodeCDF/python
 setenv MYPYTHON {$MYPYTHON}:$gitdir/SHARP/python
 setenv MYPYTHON {$MYPYTHON}:$gitdir/SuprimeCam/python
@@ -188,8 +205,14 @@ setenv MYPYTHON {$MYPYTHON}:$gitdir/NIRI/python
 setenv MYPYTHON {$MYPYTHON}:$CODEHOME/python
 setenv MYPYTHON {$MYPYTHON}:$gitdir/masterlens/python
 #
-setenv PYTHONPATH {$MYPYTHON}:{$PYTHONSYSLIB}
-setenv NUMERIX numpy
+#   Old python - Don't use anymore
+#   ------------------------------
+#setenv PYTHONPATH {$PYTHONPATH}:/Library/Python/2.5/site-packages
+#
+#   Set up the default version - see the cshrc file  
+#   -----------------------------------------------
+#   *** To change this, use the relevant aliases in the alias file ***
+#
 
 # ESO P2PP tool varaibles
 setenv PATH ${PATH}:$CODEHOME/share/p2pp-3.3.1/bin
@@ -379,3 +402,6 @@ setenv LD_LIBRARY_PATH ${LD_LIBRARY_PATH}:${OSLIB}
 # set path = ($path $nicred)
 # setenv NICMOSCALIB ${nicred}/Marcia
 # setenv irafphot $home/iraf/Photometry/
+
+# Finally, set a temporary path variable
+setenv MYPATH {$PATH}

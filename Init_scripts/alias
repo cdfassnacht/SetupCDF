@@ -64,6 +64,12 @@ alias ftpredshift "sftp cdf@redshift.physics.ucdavis.edu"
 alias ftpsmitty	"sftp fassnacht@smitty.physics.ucdavis.edu"
 alias ftpsptoir	"sftp cdfassnacht@sptoir.uchicago.edu"
 
+# Python/Ureka aliases
+alias ureka     "ur_setup; setenv PYTHONPATH {$MYPYTHON}:{$URPYTHON}"
+alias ureka_forget "ur_forget; setenv PYTHONPATH {$MYPYTHON}:{$PYTHONSYSLIB}"
+alias set_anaconda "setenv MYPATH {$PATH}; setenv PATH {$ANACONDABIN}:{$PATH}; setenv PYTHONPATH {$MYPYTHON}:{$ANACONDAPKGS}"
+alias unset_anaconda "setenv PATH {$MYPATH}; setenv PYTHONPATH {$MYPYTHON}:{$PYTHONSYSLIB}"
+
 # General aliases
 alias aipsemacs "emacs -g 140x45+0+10 -font 7x13 &"
 alias bkgd	"xv -root -max -quit $HOME/cloudless.jpg &"
@@ -103,8 +109,6 @@ alias rmcln	"rm *~ .*~; ls -aF"
 alias startx8   "startx -- -bpp 8"
 alias xbiff     'xbiff -g 48x48+851+0 -bg "BlueViolet" &'
 alias texcln	"rm *.{log,dvi,aux,bbl,blg,nav,out,toc,snm} *~; ls -aF"
-alias ureka     "ur_setup; setenv PYTHONPATH {$MYPYTHON}:{$URPYTHON}"
-alias ureka_forget "ur_forget; setenv PYTHONPATH {$MYPYTHON}:{$URPYTHON}"
 alias vt        "setenv TERM vt100"
 #
 # 

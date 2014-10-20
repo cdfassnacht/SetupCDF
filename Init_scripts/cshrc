@@ -105,15 +105,12 @@ alias ur_forget 'eval `/Users/cdf/.ureka/ur_forget -csh \!*`'
 
 # Set the default python path.  To change, use the relevant commands that are
 # defined in the alias file (e.g., set_anaconda)
-setenv PYTHONPATH {$MYPYTHON}:{$PYTHONPKGS}
-setenv NUMERIX numpy
-setenv PYTHONBIN {$PYTHONSYSBIN}
+setenv PYTHONPATH {$MYPYTHON}:{$PYPKGS}
+setenv PYTHONBIN {$PYBIN}
 
 # Re-set the temporary path variable
 setenv MYPATH {$PATH}
 
 # MacPorts Installer addition on 2014-10-07_at_18:05:05: adding an appropriate PATH variable for use with MacPorts.
 setenv PATH /opt/local/bin:/opt/local/sbin:{$PYTHONBIN}:{$MYPATH}
-
-
 

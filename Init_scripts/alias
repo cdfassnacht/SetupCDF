@@ -94,7 +94,7 @@ alias irafterm  "xgterm -g 80x40+0-7 -title IRAF -fn 8x13 -sb &"
 #endif
 #alias nicred_setup $nrcmd
 alias homeemacs "emacs -g 81x30+0+10 -font 7x14 &"
-alias latex2pdf	"$home/Code/scripts/latex2pdf.sh"
+alias latex2pdf	"$gitdir/CodeCDF/scripts/latex2pdf.sh"
 #alias mail      "elm"
 alias mailterm	"xterm -g 85x34-0+183 -n "mailterm" -fn 9x15 &"
 #alias moncln	"$mon1608/Scripts/moncln.sh"
@@ -103,7 +103,8 @@ alias lsall	'ls -Fa'            # Show all files, indicate file type
 #alias ll ls -l
 alias lsdot	ls -aFd .\*
 #alias lldot ls -ald .\*
-alias pdflatex_with_bib	"$home/Code/scripts/pdflatex_with_bib.sh"
+alias pdflatex_with_bib	"$gitdir/CodeCDF/scripts/pdflatex_with_bib.sh"
+alias run_pdflatex	"$gitdir/CodeCDF/scripts/run_pdflatex.sh"
 alias remap     "xmodmap ~/.xmodmaprc"
 alias rmcln	"rm *~ .*~; ls -aF"
 alias startx8   "startx -- -bpp 8"

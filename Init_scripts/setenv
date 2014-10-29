@@ -339,7 +339,7 @@ endsw
 # Finally add to paths, putting the directories most likely to have the
 #  most up-to-date versions of files at the front of the path.
 
-setenv PATH ${OSBIN}:${CODEHOME}/scripts:$home/Lenses/Scripts:/usr/local/bin:${PATH}
+setenv PATH ${OSBIN}:${gitdir}/CodeCDF/scripts:$home/Lenses/Scripts:/usr/local/bin:${PATH}
 setenv LD_LIBRARY_PATH ${LD_LIBRARY_PATH}:${OSLIB}
 
 ##########################################################################

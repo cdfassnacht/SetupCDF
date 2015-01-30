@@ -241,6 +241,14 @@ if (-e $home/Init_scripts/idl_startup) then
    setenv IDL_STARTUP $home/Init_scripts/idl_startup
 endif
 
+# acsproc environment variables
+setenv PATH $gitdir/CodeCDF/idl/acsproc:${PATH}
+setenv IDL_PATH $gitdir/CodeCDF/idl/acsproc:${IDL_PATH}
+setenv HST_DIR $sharpdat
+setenv HST_DATAROOT $sharpdat
+setenv HST_PSFDIR $sharpdat/acs_psf
+alias acsproc 'idl -e "acsproc"'
+
 # HAGGLES environment variables
 setenv HAGGLES_DATA_DIR ${DATA_DIR}/Haggles/
 setenv SHAGGLES_DIR ${WORK_DIR}/shaggles

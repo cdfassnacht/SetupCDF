@@ -159,6 +159,9 @@ setenv AB922   $lensmon/ab922/Reduc
 setenv PATH ${PATH}:/usr/local/git/bin
 setenv gitdir   $home/git
 
+# TeX setup
+setenv PATH ${PATH}:/usr/texbin
+
 # CVS setup
 setenv CVS_RSH ssh
 

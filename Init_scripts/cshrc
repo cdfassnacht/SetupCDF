@@ -123,3 +123,12 @@ setenv PATH /opt/local/bin:/opt/local/sbin:{$PYTHONBIN}:{$MYPATH}
 setenv PATH "/opt/local/bin:/opt/local/sbin:$PATH"
 # Finished adapting your PATH environment variable for use with MacPorts.
 
+
+##
+# Your previous /Users/cdf/.cshrc file was backed up as /Users/cdf/.cshrc.macports-saved_2015-03-03_at_11:00:53
+##
+
+# MacPorts Installer addition on 2015-03-03_at_11:00:53: adding an appropriate PATH variable for use with MacPorts.
+setenv PATH "/opt/local/bin:/opt/local/sbin:$PATH"
+# Finished adapting your PATH environment variable for use with MacPorts.
+

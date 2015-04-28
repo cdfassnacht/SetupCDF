@@ -95,25 +95,26 @@ if (-e $home/unison.hostname) then
 endif
    
 # General environment variables
-setenv EDITOR   emacs
-setenv LSCOLORS cxfxcxdxbxegedabagacad
-setenv PRINTER  astrodup
-setenv LPDEST   $PRINTER			# Same as LPDEST
-setenv TAPE     /dev/rmt/1mn   # Exabyte on mitty.stsci.edu
-setenv PAGER    less
-setenv LESS     "-e"
-setenv WORK_DIR $home/Work/
-setenv DATA_DIR $home/Data/
-setenv work     $WORK_DIR
-setenv proj     $home/Projects/Active/
-setenv data     $DATA_DIR
-setenv data1    /redorgreen/data1/cdf/
-setenv data2    /redorgreen/data2/cdf/
-setenv goods    $home/GOODS/
-setenv lenses   $home/Lenses/
-setenv lensdat  $home/Lenses/Data/
-setenv sharpdat $data/SHARP/
-setenv unidir   $work/Unison
+setenv EDITOR    emacs
+setenv LSCOLORS  cxfxcxdxbxegedabagacad
+setenv PRINTER   astrodup
+setenv LPDEST    $PRINTER			# Same as LPDEST
+setenv TAPE      /dev/rmt/1mn   # Exabyte on mitty.stsci.edu
+setenv PAGER     less
+setenv LESS      "-e"
+setenv WORK_DIR  $home/Work/
+setenv DATA_DIR  $home/Data/
+setenv work      $WORK_DIR
+setenv proj      $home/Projects/Active/
+setenv data      $DATA_DIR
+setenv goods     $home/GOODS/
+setenv lenses    $home/Lenses/
+setenv lensdat   $home/Lenses/Data/
+setenv sharpproj $proj/SHARP/
+setenv sharpdat  $data/SHARP/
+setenv unidir    $work/Unison
+#setenv data1     /redorgreen/data1/cdf/
+#setenv data2     /redorgreen/data2/cdf/
 
 # Classes
 setenv classes  $home/Classes

@@ -110,7 +110,7 @@ alias remap     "xmodmap ~/.xmodmaprc"
 alias rmcln	"rm *~ .*~; ls -aF"
 alias startx8   "startx -- -bpp 8"
 alias xbiff     'xbiff -g 48x48+851+0 -bg "BlueViolet" &'
-alias texcln	"rm *.{log,dvi,aux,blg,nav,out,toc,snm} *~; ls -aF"
+alias texcln	"rm *.{log,dvi,aux,blg,nav,toc,snm} *~; ls -aF"
 alias vt        "setenv TERM vt100"
 #
 # 

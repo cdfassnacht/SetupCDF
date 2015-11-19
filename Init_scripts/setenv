@@ -209,6 +209,7 @@ setenv MYPYTHON {$MYPYTHON}:$gitdir/NIRI/python
 setenv MYPYTHON {$MYPYTHON}:$gitdir/SHARP/python
 setenv MYPYTHON {$MYPYTHON}:$gitdir/SuprimeCam/python
 setenv MYPYTHON {$MYPYTHON}:$CODEHOME/python
+setenv MYPTYHON {$MYPYTHON}:$CODEHOME/share/colorpro
 setenv MYPYTHON {$MYPYTHON}:$gitdir/masterlens/python
 #
 #   Old python - Don't use anymore
@@ -246,6 +247,12 @@ endif
 if (-e $home/Init_scripts/idl_startup) then
    setenv IDL_STARTUP $home/Init_scripts/idl_startup
 endif
+
+# colorpro environment variables
+setenv COLORPRO {$CODEHOME}/share/colorpro
+alias colorpro "python $COLORPRO/colorpro.py"
+setenv SEXSEG $COLORPRO
+alias sexseg "python $SEXSEG/sexseg.py"
 
 # acsproc environment variables
 setenv PATH $gitdir/CodeCDF/idl/acsproc:${PATH}

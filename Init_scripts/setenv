@@ -207,6 +207,7 @@ setenv MYPYTHON {$MYPYTHON}:$gitdir/CodeCDF/python
 setenv MYPYTHON {$MYPYTHON}:$gitdir/ORELSE/python
 setenv MYPYTHON {$MYPYTHON}:$gitdir/NIRI/python
 setenv MYPYTHON {$MYPYTHON}:$gitdir/SHARP/python
+setenv MYPYTHON {$MYPYTHON}:$gitdir/SHARP_jw/python
 setenv MYPYTHON {$MYPYTHON}:$gitdir/SuprimeCam/python
 setenv MYPYTHON {$MYPYTHON}:$CODEHOME/python
 setenv MYPTYHON {$MYPYTHON}:$CODEHOME/share/colorpro

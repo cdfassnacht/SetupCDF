@@ -116,6 +116,10 @@ setenv unidir    $work/Unison
 #setenv data1     /redorgreen/data1/cdf/
 #setenv data2     /redorgreen/data2/cdf/
 
+# git setup
+setenv PATH ${PATH}:/usr/local/git/bin
+setenv gitdir   $home/git
+
 # Classes
 setenv classes  $home/Classes
 setenv classcur $home/Classes/Current
@@ -127,8 +131,10 @@ setenv ast25    $classes/Archive/AST25
 setenv cosmos   $classcur/COSMOS
 setenv phy153   $classes/Archive/PHY153
 setenv p153cur  $classcur/PHY153
+setenv p153git  $gitdir/MyClasses/PHY153
 setenv phy266   $classes/PHY266
 setenv p266cur  $classcur/PHY266
+setenv p266git  $gitdir/MyClasses/PHY266
 
 # Instrument-specific directories
 setenv chandra $DATA_DIR/Chandra/
@@ -155,10 +161,6 @@ setenv AF310   $lensmon/af310/Reduc
 setenv AF340   $lensmon/af340/Reduc
 setenv DAT340  $lensmon/af340/DATA
 setenv AB922   $lensmon/ab922/Reduc
-
-# git setup
-setenv PATH ${PATH}:/usr/local/git/bin
-setenv gitdir   $home/git
 
 # TeX setup
 setenv PATH ${PATH}:/usr/texbin

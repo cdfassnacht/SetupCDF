@@ -119,6 +119,8 @@ setenv unidir    $work/Unison
 # git setup
 setenv PATH ${PATH}:/usr/local/git/bin
 setenv gitdir   $home/git
+setenv sharpgit $gitdir/SHARP
+setenv stridesgit $gitdir/STRIDES
 
 # Classes
 setenv classes  $home/Classes

@@ -300,9 +300,10 @@ setenv XLIBD  /usr/local/lib
 ##setenv PGPLOT_IDENT Yes
 
 # AIPS environment variables
-if ( -e /usr/local/aips/LOGIN.CSH ) then
-   source /usr/local/aips/LOGIN.CSH
-   echo "Setting up for AIPS"
+setenv AIPS_ROOT $home/aips
+if ( -e $AIPS_ROOT/LOGIN.CSH ) then
+   source $AIPS_ROOT/LOGIN.CSH
+   #echo "Setting up for AIPS"
 endif
 setenv RUNFIL /home/cdf/aips
 setenv MONMOD /home/cdf/Lensmon/Models

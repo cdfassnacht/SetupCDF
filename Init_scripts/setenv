@@ -255,7 +255,7 @@ endif
 
 # colorpro environment variables
 setenv COLORPRO {$CODEHOME}/share/colorpro
-alias colorpro "python $COLORPRO/colorpro.py"
+alias colorpro "$home/Ureka/variants/common/bin/python $COLORPRO/colorpro.py"
 setenv SEXSEG $COLORPRO
 alias sexseg "python $SEXSEG/sexseg.py"
 

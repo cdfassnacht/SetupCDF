@@ -102,8 +102,8 @@ setenv LPDEST    $PRINTER			# Same as LPDEST
 setenv TAPE      /dev/rmt/1mn   # Exabyte on mitty.stsci.edu
 setenv PAGER     less
 setenv LESS      "-e"
-setenv WORK_DIR  $home/Work/
-setenv DATA_DIR  $home/Data/
+setenv WORK_DIR  $home/Work
+setenv DATA_DIR  $home/Data
 setenv work      $WORK_DIR
 setenv proj      $home/Projects/Active/
 setenv data      $DATA_DIR

@@ -380,25 +380,6 @@ setenv LD_LIBRARY_PATH ${LD_LIBRARY_PATH}:${OSLIB}
 #
 ##########################################################################
 
-## Scisoft setup 
-## Note that scisoft contains a lot of packages that would normally
-##  need their own setups, such as iraf, pgplot, and possibly idl.
-##
-#if( $MACHTYPE == i386) then
-#   setenv SCISOFTDIR /scisoft/i386
-#   setenv SCISOFTINIT /scisoft/all/bin/Setup.csh
-#else
-#   setenv SCISOFTDIR /scisoft
-#   setenv SCISOFTINIT /scisoft/bin/Setup.csh
-#endif
-#if ( -e $SCISOFTINIT ) then
-##   echo Setting up Scisoft
-#   source $SCISOFTINIT
-#endif
-#setenv PATH ${PATH}:/scisoft/pgplot
-# Add scisoft pyraf to python path
-#setenv PYTHONPATH {$PYTHONPATH}:/Applications/scisoft/i386/Packages/Python-2.5.4/Python.framework/Versions/2.5/lib/python2.5/site-packages
-
 # OBSOLETE IRAF setup
 # # Prepare things for IRAF
 # if ($?iraf) then

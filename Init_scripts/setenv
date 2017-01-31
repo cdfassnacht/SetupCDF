@@ -125,21 +125,24 @@ setenv h0licow    $gitdir/H0LiCOW/
 setenv sharpgit   $gitdir/SHARP/
 setenv stridesgit $gitdir/STRIDES/
 
-# Classes
-setenv classes  $home/Classes
-setenv classcur $home/Classes/Current
-setenv a10gcur  $classcur/AST10G_or_25
-setenv a10scur  $classcur/AST10S
-setenv ast10g   $classes/Archive/AST10G
-setenv ast10s   $classes/Archive/AST10S
-setenv ast25    $classes/Archive/AST25
-setenv cosmos   $classcur/COSMOS
-setenv phy153   $classes/Archive/PHY153
-setenv p153cur  $classcur/PHY153
-setenv p153git  $gitdir/MyClasses/PHY153
-setenv phy266   $classes/PHY266
-setenv p266cur  $classcur/PHY266
-setenv p266git  $gitdir/MyClasses/PHY266
+# Classes, including some git setup
+setenv classes    $home/Classes
+setenv classcur   $home/Classes/Current
+setenv myclasses  $gitdir/MyClasses
+setenv a10gcur    $classcur/AST10G_or_25
+setenv a10ggit    $myclasses/AST10G
+setenv a10scur    $classcur/AST10S
+setenv a10sgit    $myclasses/AST10S
+setenv ast10g     $classes/Archive/AST10G
+setenv ast10s     $classes/Archive/AST10S
+setenv ast25      $classes/Archive/AST25
+setenv cosmos     $classcur/COSMOS
+setenv phy153     $classes/Archive/PHY153
+setenv p153cur    $classcur/PHY153
+setenv p153git    $myclasses/PHY153
+setenv phy266     $classes/PHY266
+setenv p266cur    $classcur/PHY266
+setenv p266git    $myclasses/PHY266
 
 # Instrument-specific directories
 setenv chandra $DATA_DIR/Chandra/

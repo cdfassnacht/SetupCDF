@@ -321,6 +321,7 @@ setenv crrefer $hst
 setenv jref $hst/jref/
 setenv uref $hst/uref/
 setenv nref $hst/nref/
+setenv deimos $CODEHOME/iraf/deimos/
 
 # NICRED (python version) variables
 setenv NICRED_DIR $CODEHOME/python/nicred_ucsc

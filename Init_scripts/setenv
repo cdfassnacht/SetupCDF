@@ -117,7 +117,7 @@ setenv unidir    $work/Unison
 #setenv data2     /redorgreen/data2/cdf/
 
 # git setup
-setenv PATH ${PATH}:/usr/local/git/bin
+setenv PATH       ${PATH}:/usr/local/git/bin
 setenv gitdir     $home/git
 setenv esigit     $gitdir/KeckCDF/ESI/
 setenv lrisgit    $gitdir/KeckCDF/LRIS/
@@ -171,7 +171,7 @@ setenv DAT340  $lensmon/af340/DATA
 setenv AB922   $lensmon/ab922/Reduc
 
 # TeX setup
-setenv PATH ${PATH}:/usr/texbin
+setenv PATH    ${PATH}:/usr/texbin
 
 # CVS setup
 setenv CVS_RSH ssh
@@ -250,7 +250,8 @@ setenv PATH ${PATH}:$CODEHOME/share/p2pp-3.3.1/bin
 #setenv IDL_LOCATION /usr/local/rsi
 #setenv IDL_LOCATION /Applications/itt
 #setenv IDL_LOCATION /usr/local/itt
-setenv IDL_LOCATION /usr/local/exelis
+setenv IDL_LOCATION /Applications/exelis
+setenv PATH ${PATH}:${IDL_LOCATION}/idl/bin
 if (! $?IDL_PATH) then
    setenv IDL_PATH +${IDL_LOCATION}:+$gitdir/CodeCDF/idl:+$CODEHOME/IDL
 else

@@ -108,22 +108,28 @@ setenv work      $WORK_DIR
 setenv proj      $home/Projects/Active/
 setenv data      $DATA_DIR
 setenv goods     $home/GOODS/
-setenv lenses    $home/Lenses/
-setenv lensdat   $home/Lenses/Data/
-setenv sharpproj $proj/SHARP/
-setenv sharpdat  $data/SHARP/
 setenv unidir    $work/Unison
 #setenv data1     /redorgreen/data1/cdf/
 #setenv data2     /redorgreen/data2/cdf/
 
-# git setup
+# git setup and some git directories
+setenv PATH ${PATH}:/usr/local/git/bin
 setenv PATH       ${PATH}:/usr/local/git/bin
 setenv gitdir     $home/git
 setenv esigit     $gitdir/KeckCDF/ESI/
 setenv lrisgit    $gitdir/KeckCDF/LRIS/
 setenv h0licow    $gitdir/H0LiCOW/
-setenv sharpgit   $gitdir/SHARP/
 setenv stridesgit $gitdir/STRIDES/
+
+# Lens directories
+setenv lenses    $home/Lenses/
+setenv lensdat   $home/Lenses/Data/
+setenv lensgit   $gitdir/Lenses/
+
+# SHARP directories
+setenv sharpproj $proj/SHARP/
+setenv sharpdat  $data/SHARP/
+setenv sharpgit   $gitdir/SHARP/
 
 # Classes, including some git setup
 setenv classes    $home/Classes

@@ -1,0 +1,56 @@
+# establish my IDL startup file. 
+ setenv IDL_STARTUP ~/.idlstartup 
+ 
+ # set the IDL directories. 
+setenv RSI_DIR /Applications/
+setenv IDL_DIR /Applications/exelis/idl85
+#setenv IDL_DIR /Applications/itt_is_lame/itt/idl/idl81
+#setenv IDL_DIR /Applications/itt/idl/idl81/
+#setenv IDL_DIR /Applications/itt/idl71/
+setenv IDL_HELP_PATH    $IDL_DIR/help 
+  
+ # clear the path. 
+ setenv IDL_PATH 
+  # add the base IDL library and examples to path. 
+ setenv IDL_PATH         $IDL_PATH{:}+$IDL_DIR/lib 
+ setenv IDL_PATH         $IDL_PATH{:}+$IDL_DIR/examples 
+ 
+  # add all cvs routines to path. 
+ # this includes both the UCB and SDSS routines, as  IDL_PATH is searched recursively. 
+ setenv IDL_PATH         $IDL_PATH{:}+~/cvs/spec2d/
+ setenv IDL_PATH         $IDL_PATH{:}+~/cvs/spec1d/ 
+ setenv IDL_PATH         $IDL_PATH{:}+~/cvs/calib/
+ setenv IDL_PATH         $IDL_PATH{:}+~/cvs/idlutils/goddard/pro
+ setenv IDL_PATH         $IDL_PATH{:}+~/cvs/idlutils/pro
+ setenv IDL_PATH         $IDL_PATH{:}+~/cvs/idlspec2d/pro
+ setenv IDL_PATH         $IDL_PATH{:}+~/cvs/photoop/pro
+ setenv IDL_PATH         $IDL_PATH{:}+~/work/codes/IDL
+ setenv IDL_PATH         $IDL_PATH{:}+~/bubba/IDL_program/npk
+ setenv IDL_PATH 	 $IDL_PATH{:}+/Volumes/Data2/orelse/lemaux/NIRSPEC/new_reduction/nirspec_reduce
+ setenv IDL_PATH	 $IDL_PATH{:}+$EZ_AGES_DIR
+# setenv IDL_PATH         $IDL_PATH{:}+/Users/gal/Work/codes/IDL
+
+ # essential directories for DEIMOS analysis 
+setenv IDLUTILS_DIR ~/cvs/idlutils
+setenv DEEP_DIR ~/cvs 
+setenv DEIMOS_DATA /Volumes/Data2/orelse/lemaux/deimos/ORELSEmasks/
+#setenv DEIMOS_DATA ~/
+setenv CALIB_DATA ~/cvs/calib 
+setenv IDLSPEC2D_DIR ~/cvs/spec2d 
+setenv IDLSPEC1D_DIR ~/cvs/spec1d
+setenv DUST_DIR ~/cvs/idlutils/pro/dust
+#setenv IDLSPEC2D_DIR ~/cvs/idlspec2d
+#setenv IDLSPEC1D_DIR ~/cvs/idlspec1d
+setenv PHOTOOP_DIR ~/cvs/photoop
+setenv D2_RESULTS /Volumes/Data2/orelse/lemaux/deimos/ORELSEmasks/
+#setenv D2_RESULTS ~/
+#setenv D2_RESULTS ~/../slampa/ORELSEmasks
+  
+#alias rsilicense $IDL_DIR/bin/rsilicense
+alias idl $IDL_DIR/bin/idl
+alias idlde $IDL_DIR/bin/idlde
+alias idldeclient $IDL_DIR/bin/idldeclient
+alias idlhelp $IDL_DIR/bin/idlhelp
+alias idlman $IDL_DIR/bin/idlman
+alias idlrpc $IDL_DIR/bin/idlrpc
+alias idldemo $IDL_DIR/bin/idldemo

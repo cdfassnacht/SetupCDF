@@ -1,0 +1,58 @@
+###########################################################################
+#
+# IDL-specific environment variables
+#
+###########################################################################
+
+# Set up the IDL location, which has changed over the years
+#setenv IDL_LOCATION /usr/local/rsi
+#setenv IDL_LOCATION /Applications/itt
+#setenv IDL_LOCATION /usr/local/itt
+setenv IDL_LOCATION /Applications/exelis
+
+# Put IDL into the system path, and set up the IDL_PATH variable
+setenv PATH ${PATH}:${IDL_LOCATION}/idl/bin
+if (! $?IDL_PATH) then
+   setenv IDL_PATH +${IDL_LOCATION}:+$gitdir/CodeCDF/idl:+$CODEHOME/IDL
+else
+   setenv IDL_PATH ${IDL_PATH}:+${IDL_LOCATION}
+   setenv IDL_PATH ${IDL_PATH}:+$gitdir/CodeCDF/idl:+$CODEHOME/IDL
+endif
+
+# Load packages that are commonly used by setting the IDL_STARTUP variable
+if (-e $home/Init_scripts/idl_startup) then
+   setenv IDL_STARTUP $home/Init_scripts/idl_startup
+endif
+
+#----- Lines below are from Lemaux's .idlenv file, modified to work here
+
+setenv IDL_HELP_PATH    $IDL_DIR/help 
+  
+# add all cvs routines to path. 
+# this includes both the UCB and SDSS routines, since IDL_PATH is searched 
+#  recursively. 
+#setenv ZS_DIR ~/cvs  # Brian's location of code
+setenv ZS_DIR $CODEHOME/IDL 
+ setenv IDL_PATH         $IDL_PATH{:}+$ZS_DIR/spec2d/
+ setenv IDL_PATH         $IDL_PATH{:}+$ZS_DIR/spec1d/ 
+ setenv IDL_PATH         $IDL_PATH{:}+$ZS_DIR/calib/
+ setenv IDL_PATH         $IDL_PATH{:}+$ZS_DIR/idlutils/goddard/pro
+ setenv IDL_PATH         $IDL_PATH{:}+$ZS_DIR/idlutils/pro
+ setenv IDL_PATH         $IDL_PATH{:}+$ZS_DIR/idlspec2d/pro
+ setenv IDL_PATH         $IDL_PATH{:}+$ZS_DIR/photoop/pro
+
+# essential directories for DEIMOS analysis 
+setenv IDLUTILS_DIR $ZS_DIR/idlutils
+setenv DEEP_DIR $ZS_DIR 
+setenv DEIMOS_DATA /Volumes/Data2/orelse/lemaux/deimos/ORELSEmasks/
+setenv CALIB_DATA $ZS_DIR/calib 
+setenv IDLSPEC2D_DIR $ZS_DIR/spec2d 
+setenv IDLSPEC1D_DIR $ZS_DIR/spec1d
+setenv DUST_DIR $ZS_DIR/idlutils/pro/dust
+setenv PHOTOOP_DIR $ZS_DIR/photoop
+setenv D2_RESULTS /Volumes/Data2/orelse/lemaux/deimos/ORELSEmasks/
+  
+#alias idldeclient $IDL_DIR/bin/idldeclient
+#alias idlman $IDL_DIR/bin/idlman
+#alias idlrpc $IDL_DIR/bin/idlrpc
+#alias idldemo $IDL_DIR/bin/idldemo

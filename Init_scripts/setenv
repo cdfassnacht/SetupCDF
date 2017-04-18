@@ -139,6 +139,7 @@ setenv a10gcur    $classcur/AST10G_or_25
 setenv a10ggit    $myclasses/AST10G
 setenv a10scur    $classcur/AST10S
 setenv a10sgit    $myclasses/AST10S
+setenv a25git     $myclasses/AST25
 setenv ast10g     $classes/Archive/AST10G
 setenv ast10s     $classes/Archive/AST10S
 setenv ast25      $classes/Archive/AST25

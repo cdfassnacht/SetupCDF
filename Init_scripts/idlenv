@@ -49,8 +49,8 @@ setenv CALIB_DATA    $ZS_DIR/calib
 setenv PHOTOOP_DIR   $ZS_DIR/photoop
 
 # directories for DEIMOS analysis
-setenv DEIMOS_DATA $data/DEIMOS/
-setenv D2_RESULTS  $data/DEIMOS/
+setenv DEIMOS_DATA $data/DEIMOS/Current/Redux
+setenv D2_RESULTS  $data/DEIMOS/Current/Redux
   
 #alias idldeclient $IDL_LOCATION/bin/idldeclient
 #alias idlman      $IDL_LOCATION/bin/idlman

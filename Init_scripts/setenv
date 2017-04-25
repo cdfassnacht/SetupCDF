@@ -239,7 +239,7 @@ setenv MYPYTHON {$MYPYTHON}:$gitdir/masterlens/python
 #   -----------------------------------------------
 #   *** To change this, use the relevant aliases in the alias file ***
 setenv PYBIN {$ANACONDABIN}
-setenv PYPKGS {$ANACONDAPKGS}
+#setenv PYPKGS {$ANACONDAPKGS}
 setenv NUMERIX numpy
 
 # ESO P2PP tool varaibles

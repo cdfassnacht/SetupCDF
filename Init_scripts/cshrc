@@ -105,7 +105,8 @@ alias ur_forget 'eval `/Users/cdf/.ureka/ur_forget -csh \!*`'
 
 # Set the default python path.  To change, use the relevant commands that are
 # defined in the alias file (e.g., set_anaconda)
-setenv PYTHONPATH {$MYPYTHON}:{$PYPKGS}
+#setenv PYTHONPATH {$MYPYTHON}:{$PYPKGS}
+setenv PYTHONPATH {$MYPYTHON}
 setenv PYTHONBIN {$PYBIN}
 
 # Re-set the temporary path variable

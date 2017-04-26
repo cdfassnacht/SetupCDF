@@ -220,8 +220,10 @@ setenv URPYTHON $home/Ureka/variants/common/lib/python2.7/site-packages
 #   My python packages
 #   ------------------
 setenv MYPYTHON $CODEHOME/mwa_python
+setenv MYPYTHON {$MYPYTHON}:$gitdir/mwaCode/python
 setenv MYPYTHON {$MYPYTHON}:$gitdir/CodeCDF/python
 setenv MYPYTHON {$MYPYTHON}:$gitdir/KeckCDF/python
+setenv MYPYTHON {$MYPYTHON}:$gitdir/veldisp/python
 setenv MYPYTHON {$MYPYTHON}:$gitdir/NIRI/python
 setenv MYPYTHON {$MYPYTHON}:$gitdir/ORELSE/python
 setenv MYPYTHON {$MYPYTHON}:$gitdir/SHARP/python

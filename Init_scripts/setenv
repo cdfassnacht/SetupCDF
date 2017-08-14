@@ -221,6 +221,7 @@ setenv URPYTHON $home/Ureka/variants/common/lib/python2.7/site-packages
 #   ------------------
 setenv MYPYTHON $CODEHOME/mwa_python
 setenv MYPYTHON {$MYPYTHON}:$gitdir/mwaCode/python
+setenv MYPYTHON {$MYPYTHON}:$gitdir/CDFutils/python
 setenv MYPYTHON {$MYPYTHON}:$gitdir/CodeCDF/python
 setenv MYPYTHON {$MYPYTHON}:$gitdir/KeckCDF/python
 setenv MYPYTHON {$MYPYTHON}:$gitdir/veldisp/python

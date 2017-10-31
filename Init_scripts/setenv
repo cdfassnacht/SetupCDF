@@ -326,9 +326,10 @@ setenv MONMOD /home/cdf/Lensmon/Models
 
 # IRAF variables (Note: old IRAF setup at end of this file)
 setenv crrefer $hst
+setenv iref $hst/iref/
 setenv jref $hst/jref/
-setenv uref $hst/uref/
 setenv nref $hst/nref/
+setenv uref $hst/uref/
 setenv deimos $CODEHOME/iraf/deimos/
 
 # NICRED (python version) variables

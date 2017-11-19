@@ -159,6 +159,7 @@ setenv hst     $DATA_DIR/HST/
 setenv keckao  $DATA_DIR/Keck_AO/
 setenv lris    $DATA_DIR/LRIS/
 setenv nirspec $DATA_DIR/NIRSPEC/
+setenv osiris  $DATA_DIR/OSIRIS/
 setenv p60     $DATA_DIR/P60cam/
 setenv pfcam   $DATA_DIR/PFCam/
 setenv scam    $DATA_DIR/SuprimeCam/

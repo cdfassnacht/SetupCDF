@@ -224,7 +224,8 @@ setenv MYPYTHON $CODEHOME/mwa_python
 setenv MYPYTHON {$MYPYTHON}:$gitdir/mwaCode/python
 setenv MYPYTHON {$MYPYTHON}:$gitdir/CDFutils/python
 setenv MYPYTHON {$MYPYTHON}:$gitdir/CodeCDF/python
-setenv MYPYTHON {$MYPYTHON}:$gitdir/KeckCDF/python
+setenv MYPYTHON {$MYPYTHON}:$gitdir/KeckCode/python
+setenv MYPYTHON {$MYPYTHON}:$gitdir/KeckObs/python
 setenv MYPYTHON {$MYPYTHON}:$gitdir/veldisp/python
 setenv MYPYTHON {$MYPYTHON}:$gitdir/NIRI/python
 setenv MYPYTHON {$MYPYTHON}:$gitdir/ORELSE/python

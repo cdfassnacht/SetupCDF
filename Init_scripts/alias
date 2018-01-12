@@ -63,6 +63,7 @@ alias ftpphys	"sftp fassnach@physauth.physics.ucdavis.edu"
 alias ftpredshift "sftp cdf@redshift.physics.ucdavis.edu"
 alias ftpsmitty	"sftp fassnacht@smitty.physics.ucdavis.edu"
 alias ftpsptoir	"sftp cdfassnacht@sptoir.uchicago.edu"
+alias ftpweb1   "sftp fassnach@web1.physics.ucdavis.edu"
 
 # Python/Ureka aliases
 alias ureka     "ur_setup; setenv PYTHONPATH {$MYPYTHON}:{$URPYTHON}"

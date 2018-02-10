@@ -179,7 +179,8 @@ setenv DAT340  $lensmon/af340/DATA
 setenv AB922   $lensmon/ab922/Reduc
 
 # TeX setup
-setenv PATH    ${PATH}:/usr/texbin
+#setenv PATH    ${PATH}:/usr/texbin
+setenv PATH    ${PATH}:/Library/TeX/texbin
 
 # CVS setup
 setenv CVS_RSH ssh

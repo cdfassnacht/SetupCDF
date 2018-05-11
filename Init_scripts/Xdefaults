@@ -71,9 +71,9 @@
 !xman*bothShow:		true
 !
 alarm.visible:	True
-emacs.font:     -adobe-courier-medium-r-normal--14-140*
-emacs*font:     -adobe-courier-medium-r-normal--14-140*
-xemacs.font:    -adobe-courier-medium-r-normal--14-140*
+!emacs.font:     -adobe-courier-medium-r-normal--14-140*
+!emacs*font:     -adobe-courier-medium-r-normal--14-140*
+!xemacs.font:    -adobe-courier-medium-r-normal--14-140*
 emacs.geometry:         81x37+100+60
 emacs.background:       #000000
 emacs.foreground:       #ffff00

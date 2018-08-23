@@ -3,12 +3,6 @@
 #
 #######################################################################
 
-# These two go together.  They give you the command "back" to
-# return to the previous directory.  Keep both or none:
-
-alias cd           'set old=$cwd; chdir \!*; pwd'   # Allows going back quickly
-alias back         'set back=$old; set old=$cwd; chdir $back; unset back; pwd'
-
 # Safety nets - comment out if you feel brave
 #alias cp    'cp -i'
 #alias rm    'rm -i'

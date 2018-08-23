@@ -129,7 +129,8 @@ setenv lensgit   $gitdir/Lenses/
 # SHARP directories
 setenv sharpproj $proj/SHARP/
 setenv sharpdat  $data/SHARP/
-setenv sharpgit   $gitdir/SHARP/
+setenv sharpgit  $gitdir/SHARP/
+setenv sharpbox  $sharpdat/Box
 
 # Classes, including some git setup
 setenv classes    $home/Classes

@@ -116,3 +116,8 @@ setenv MYPATH {$PATH}
 setenv PATH /opt/local/bin:/opt/local/sbin:{$PYTHONBIN}:{$MYPATH}
 
 
+
+# MacPorts Installer addition on 2018-07-31_at_16:07:04: adding an appropriate PATH variable for use with MacPorts.
+setenv PATH "/opt/local/bin:/opt/local/sbin:$PATH"
+# Finished adapting your PATH environment variable for use with MacPorts.
+

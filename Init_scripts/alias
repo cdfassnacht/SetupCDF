@@ -72,9 +72,11 @@ alias set_syspy "setenv PATH {$PYTHONSYSBIN}:{$PATH}; setenv PYTHONPATH {$MYPYTH
 
 # General aliases
 alias aipsemacs "emacs -g 140x45+0+10 -font 7x13 &"
+alias astroconda "bash; source activate astroconda"
 alias bkgd	"xv -root -max -quit $HOME/cloudless.jpg &"
 alias cleandir  "rm *.log *.mod *.out 13* 01* *.UVF 1642*LIST; ls"
 alias cleano    "rm *.o *~; ls"
+alias deactivate "source deactivate; exit"
 #alias dif	"~mcs/new/difmap"
 #alias difmap    /opt/local/caltech/difmap
 alias enscript	"enscript -M Letter"
@@ -97,6 +99,7 @@ alias homeemacs "emacs -g 81x30+0+10 -font 7x14 &"
 alias latex2pdf	"$gitdir/CodeCDF/scripts/latex2pdf.sh"
 #alias mail      "elm"
 alias mailterm	"xterm -g 85x34-0+183 -n "mailterm" -fn 9x15 &"
+alias make_cutout  "python $gitdir/SpecIm/trunk/src/SpecIm/make_cutout.py"
 #alias moncln	"$mon1608/Scripts/moncln.sh"
 alias lo	"rm core ~/bin/*.trace ~/tmp/*~ ~/Mail/inbox/,*; clear; logout"
 alias lsall	'ls -Fa'            # Show all files, indicate file type

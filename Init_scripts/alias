@@ -114,6 +114,7 @@ alias startx8   "startx -- -bpp 8"
 alias xbiff     'xbiff -g 48x48+851+0 -bg "BlueViolet" &'
 alias texcln	"rm *.{log,dvi,aux,blg,nav,toc,snm} *~; ls -aF"
 alias vt        "setenv TERM vt100"
+alias wcs1click "python $gitdir/CodeCDF/python/wcs_1click.py"
 #
 # 
 #alias cd 'set old=$cwd; chdir \!*; dirs'

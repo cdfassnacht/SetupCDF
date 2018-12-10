@@ -108,6 +108,7 @@ setenv work      $WORK_DIR
 setenv proj      $home/Projects/Active/
 setenv data      $DATA_DIR
 setenv goods     $home/GOODS/
+setenv unidat    $work/Unison/Data
 setenv unidir    $work/Unison
 #setenv data1     /redorgreen/data1/cdf/
 #setenv data2     /redorgreen/data2/cdf/

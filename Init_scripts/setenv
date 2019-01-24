@@ -267,6 +267,9 @@ if (-e $home/Init_scripts/idlenv) then
 endif
 setenv MYIDL $home/Code/IDL
 
+# NIRES data reduction pipeline setup
+setenv NSXDIR $CODEHOME/share/nsx
+
 # OSIRIS data reduction pipeline (DRP) setup
 setenv OSIRIS_ROOT $MYIDL/osiris
 setenv OSIRIS_VERBOSE 0

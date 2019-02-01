@@ -1,0 +1,54 @@
+###########################################################################
+#
+# IDL-specific environment variables
+#
+###########################################################################
+
+# Set up the IDL location, which has changed over the years
+#export IDL_LOCATION /usr/local/rsi
+#export IDL_LOCATION /Applications/itt
+#export IDL_LOCATION /usr/local/itt
+export IDL_LOCATION=/Applications/exelis
+
+# Put IDL into the system path
+export PATH=${PATH}:${IDL_LOCATION}/idl/bin
+
+# Clear the IDL path and then set up the IDL_PATH variable
+export IDL_PATH 
+export IDL_PATH="+${IDL_LOCATION}:+$gitdir/CodeCDF/idl:+$CODEHOME/IDL"
+
+# Load packages that are commonly used by setting the IDL_STARTUP variable
+if [ -f $home/IDL/idl_startup ]; then
+   export IDL_STARTUP=$home/IDL/idl_startup
+fi
+
+#----- Lines below are from Lemaux's .idlenv file, modified to work here
+
+export IDL_HELP_PATH=$IDL_LOCATION/help 
+  
+# add all cvs routines to path. 
+# this includes both the UCB and SDSS routines, since IDL_PATH is searched 
+#  recursively. 
+#export ZS_DIR ~/cvs  # Brian's location of code
+export ZS_DIR=$home/IDL 
+export IDL_PATH=$IDL_PATH{:}+$ZS_DIR/spec2d/
+export IDL_PATH=$IDL_PATH{:}+$ZS_DIR/spec1d/ 
+export IDL_PATH=$IDL_PATH{:}+$ZS_DIR/calib/
+export IDL_PATH=$IDL_PATH{:}+$ZS_DIR/idlutils/goddard/pro
+export IDL_PATH=$IDL_PATH{:}+$ZS_DIR/idlutils/pro
+export IDL_PATH=$IDL_PATH{:}+$ZS_DIR/idlspec2d/pro
+export IDL_PATH=$IDL_PATH{:}+$ZS_DIR/photoop/pro
+
+# essential directories for DEIMOS analysis 
+export IDLSPEC2D_DIR=$ZS_DIR/spec2d 
+export IDLSPEC1D_DIR=$ZS_DIR/spec1d
+export IDLUTILS_DIR=$ZS_DIR/idlutils
+export DUST_DIR=$ZS_DIR/idlutils/pro/dust
+export DEEP_DIR=$ZS_DIR 
+export CALIB_DATA=$ZS_DIR/calib 
+export PHOTOOP_DIR=$ZS_DIR/photoop
+
+# directories for DEIMOS analysis
+export DEIMOS_DATA=$data/DEIMOS/Current/Redux
+export D2_RESULTS=$data/DEIMOS/Current/Redux
+  

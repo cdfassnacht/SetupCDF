@@ -62,6 +62,7 @@ alias ftpsptoir	"sftp cdfassnacht@sptoir.uchicago.edu"
 alias ftpweb1   "sftp fassnach@web1.physics.ucdavis.edu"
 
 # Python/Ureka aliases
+alias ipy       "ipython --pylab"
 alias ureka     "ur_setup; setenv PYTHONPATH {$MYPYTHON}:{$URPYTHON}"
 alias ureka_forget "ur_forget; setenv PYTHONPATH {$MYPYTHON}:{$PYTHONPKGS}"
 # alias set_anaconda "setenv MYPATH {$PATH}; setenv PATH {$ANACONDABIN}:{$PATH}; setenv PYTHONPATH {$MYPYTHON}:{$ANACONDAPKGS}"

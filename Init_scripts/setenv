@@ -114,7 +114,6 @@ setenv unidir    $work/Unison
 #setenv data2     /redorgreen/data2/cdf/
 
 # git setup and some git directories
-setenv PATH ${PATH}:/usr/local/git/bin
 setenv PATH       ${PATH}:/usr/local/git/bin
 setenv gitdir     $home/git
 setenv esigit     $gitdir/KeckCDF/ESI/

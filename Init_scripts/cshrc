@@ -92,10 +92,6 @@ endif
 
 test -r /sw/bin/init.csh && source /sw/bin/init.csh
 
-# Setting PATH for MacPython 2.5
-# The orginal version is saved in .cshrc.pysave
-#setenv PATH /Library/Frameworks/Python.framework/Versions/Current/bin:${PATH}
-
 # Setting PATH for EPD-6.3-2
 # The orginal version is saved in .cshrc.pysave
 #set path=(/Library/Frameworks/Python.framework/Versions/Current/bin $path)
@@ -103,21 +99,17 @@ test -r /sw/bin/init.csh && source /sw/bin/init.csh
 alias ur_setup 'eval `/Users/cdf/.ureka/ur_setup -csh \!*`'
 alias ur_forget 'eval `/Users/cdf/.ureka/ur_forget -csh \!*`'
 
+# Re-set the temporary path variable
+setenv MYPATH {$PATH}
+
 # Set the default python path.  To change, use the relevant commands that are
 # defined in the alias file (e.g., set_anaconda)
 #setenv PYTHONPATH {$MYPYTHON}:{$PYPKGS}
 setenv PYTHONPATH {$MYPYTHON}
 setenv PYTHONBIN {$PYBIN}
+setenv PATH {$PYTHONBIN}:{$MYPATH}
 
-# Re-set the temporary path variable
-setenv MYPATH {$PATH}
-
-# MacPorts Installer addition on 2014-10-07_at_18:05:05: adding an appropriate PATH variable for use with MacPorts.
-setenv PATH /opt/local/bin:/opt/local/sbin:{$PYTHONBIN}:{$MYPATH}
-
-
-
-# MacPorts Installer addition on 2018-07-31_at_16:07:04: adding an appropriate PATH variable for use with MacPorts.
+# MacPorts Installer addition on 2019-08-22_at_16:43:21: adding an appropriate PATH variable for use with MacPorts.
 setenv PATH "/opt/local/bin:/opt/local/sbin:$PATH"
 # Finished adapting your PATH environment variable for use with MacPorts.
 

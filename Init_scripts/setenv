@@ -114,7 +114,6 @@ setenv unidir    $work/Unison
 #setenv data2     /redorgreen/data2/cdf/
 
 # git setup and some git directories
-setenv PATH ${PATH}:/usr/local/git/bin
 setenv PATH       ${PATH}:/usr/local/git/bin
 setenv gitdir     $home/git
 setenv esigit     $gitdir/KeckCDF/ESI/
@@ -128,7 +127,7 @@ setenv lensdat   $home/Lenses/Data/
 setenv lensgit   $gitdir/Lenses/
 
 # SHARP directories
-setenv sharpproj $proj/SHARP/
+setenv sharpproj $home/SHARP/Project
 setenv sharpdat  $home/SHARP/Data
 setenv sharpgit  $gitdir/SHARP/
 setenv sharpbox  $sharpdat/Box

@@ -72,7 +72,7 @@ alias unset_anaconda "setenv PATH {$MYPATH}; setenv PYTHONPATH {$MYPYTHON}"
 alias set_syspy "setenv PATH {$PYTHONSYSBIN}:{$PATH}; setenv PYTHONPATH {$MYPYTHON}:{$PYTHONPKGS}"
 
 # General aliases
-alias aipsemacs "emacs -g 140x45+0+10 -font 7x13 &"
+alias aipsemacs "emacs -g 140x45+0+10 &"
 alias astroconda "bash; source activate astroconda"
 alias bkgd	"xv -root -max -quit $HOME/cloudless.jpg &"
 alias cleandir  "rm *.log *.mod *.out 13* 01* *.UVF 1642*LIST; ls"
@@ -81,11 +81,13 @@ alias cleano    "rm *.o *~; ls"
 alias deactivate "source deactivate; exit"
 #alias dif	"~mcs/new/difmap"
 #alias difmap    /opt/local/caltech/difmap
+alias emacs	 /Applications/Emacs.app/Contents/MacOS/Emacs
 alias enscript	"enscript -M Letter"
 alias f		"finger"
 alias ff        "find . -name '\!-0:1' -exec ls -ldaF {} \;"
 alias gaia	"/usr/local/starlink_gaia/gaia_standalone.csh &"
 alias imhead    "python -W ignore $gitdir/CodeCDF/python/imhead.py"
+alias imexam    "python $gitdir/specim/specim/imfuncs/imexam.py"
 #alias ir        "cd ~/iraf; cl"
 alias ir        "pushd ~/iraf; echo 'Starting pyraf...'; $pyrafcall"
 alias iraf_stsci "ur_forget; source $HOME/Init_scripts/setenv.iraf_stsci"
@@ -109,6 +111,7 @@ alias lsall	'ls -Fa'            # Show all files, indicate file type
 alias lsdot	ls -aFd .\*
 #alias lldot ls -ald .\*
 alias pdflatex_with_bib	"$gitdir/CodeCDF/scripts/pdflatex_with_bib.sh"
+alias quickdisp		"python $gitdir/specim/specim/imfuncs/quickdisp.py"
 alias run_pdflatex	"$gitdir/CodeCDF/scripts/run_pdflatex.sh"
 alias remap     "xmodmap ~/.xmodmaprc"
 alias rmcln	"rm *~ .*~; ls -aF"

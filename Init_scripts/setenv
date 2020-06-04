@@ -95,6 +95,7 @@ if (-e $home/unison.hostname) then
 endif
    
 # General environment variables
+setenv LANG      en_US.UTF-8
 setenv EDITOR    emacs
 setenv LSCOLORS  cxfxcxdxbxegedabagacad
 setenv PRINTER   astrodup
@@ -304,8 +305,8 @@ setenv B1608_DIR ${WORK_DIR}/1608_ACS
 
 # SDFRED2 (SuprimeCam reduction package) variables
 setenv PATH ${PATH}:$CODEHOME/share/sdfred20130924_mf2/bin
-setenv LANG C
-setenv LC_ALL C
+# setenv LANG C
+# setenv LC_ALL C
 
 # PGPLOT environment variables
 setenv LD_LIBRARY_PATH ${LD_LIBRARY_PATH}:${PGPLOT_DIR}

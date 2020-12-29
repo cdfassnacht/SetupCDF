@@ -275,7 +275,9 @@ setenv NSXDIR $CODEHOME/share/nsx
 # OSIRIS data reduction pipeline (DRP) setup
 setenv OSIRIS_ROOT $MYIDL/osiris
 setenv OSIRIS_VERBOSE 0
-source $OSIRIS_ROOT/scripts/osirisSetup.csh
+if (-e $OSIRIS_ROOT/scripts/osirisSetup.csh) then
+   source $OSIRIS_ROOT/scripts/osirisSetup.csh
+endif
 setenv PATH ${PATH}:${OSIRIS_ROOT}/scripts
 
 # colorpro environment variables

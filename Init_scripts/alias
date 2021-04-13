@@ -47,6 +47,7 @@ alias smitty	"ssh -Y smitty.physics.ucdavis.edu -l fassnacht"
 alias sptoir	"ssh -X cdfassnacht@sptoir.uchicago.edu"
 
 # sftp aliases
+alias ftp       "echo; echo "Use Cyberduck app"; echo; echo"
 alias ftpchile	"sftp cdf@redorgreen.physics.ucdavis.edu"
 alias ftpefirst	"sftp cdf@efirst.physics.ucdavis.edu"
 alias ftpgall	"sftp fassnach@gallifrey.physics.ucdavis.edu"

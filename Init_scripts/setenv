@@ -76,7 +76,6 @@ switch ("`uname -s`")
             setenv PGPLOT_DIR /usr/local/pgplot
             setenv DYLD_LIBRARY_PATH ${DYLD_LIBRARY_PATH}:/usr/local/pgplot
 	    setenv DYLD_LIBRARY_PATH ${DYLD_LIBRARY_PATH}:$home/Code/share/Simos_code/gsl-1.11/lib
-	    setenv DYLD_LIBRARY_PATH ${DYLD_LIBRARY_PATH}:/sw/Library/Frameworks/AquaTerm.framework/Versions/A
             setenv SEXTRACTOR /usr/local/sextractor/
             breaksw
 	 default:
@@ -218,6 +217,18 @@ setenv PYTHONPKGS  $PYTHONSYS/lib/python2.7/site-packages
 #   ---------------------
 setenv ANACONDABIN $home/anaconda/bin
 setenv ANACONDAPKGS $home/anaconda/lib/python2.7/site-packages
+setenv DYLD_LIBRARY_PATH ${DYLD_LIBRARY_PATH}:$home/anaconda/lib
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+if ( -f "/opt/anaconda3/etc/profile.d/conda.csh" ) then
+    source "/opt/anaconda3/etc/profile.d/conda.csh"
+else
+    setenv PATH "/opt/anaconda3/bin:$PATH"
+endif
+# <<< conda initialize <<<
+# if ( -f "/opt/anaconda3/etc/profile.d/conda.csh" ) then
+#     source "/opt/anaconda3/etc/profile.d/conda.csh"
+# endif
 #
 #   Ureka python setup
 #   ------------------
@@ -225,21 +236,18 @@ setenv URPYTHON $home/Ureka/variants/common/lib/python2.7/site-packages
 #
 #   My python packages
 #   ------------------
-setenv MYPYTHON $CODEHOME/mwa_python
+setenv MYPYTHON $gitdir/CodeCDF/python
 setenv MYPYTHON {$MYPYTHON}:$gitdir/mwaCode/python
-setenv MYPYTHON {$MYPYTHON}:$gitdir/CDFutils/python
-setenv MYPYTHON {$MYPYTHON}:$gitdir/CodeCDF/python
-setenv MYPYTHON {$MYPYTHON}:$gitdir/KeckCode/python
 setenv MYPYTHON {$MYPYTHON}:$gitdir/KeckObs/python
 setenv MYPYTHON {$MYPYTHON}:$gitdir/veldisp/python
 setenv MYPYTHON {$MYPYTHON}:$gitdir/NIRI/python
 setenv MYPYTHON {$MYPYTHON}:$gitdir/ORELSE/python
 setenv MYPYTHON {$MYPYTHON}:$gitdir/SHARP/python
-setenv MYPYTHON {$MYPYTHON}:$gitdir/SHARP_jw/python
+# setenv MYPYTHON {$MYPYTHON}:$gitdir/SHARP_jw/python
 setenv MYPYTHON {$MYPYTHON}:$gitdir/SuprimeCam/python
 setenv MYPYTHON {$MYPYTHON}:$CODEHOME/python
-setenv MYPTYHON {$MYPYTHON}:$CODEHOME/share/colorpro
-setenv MYPYTHON {$MYPYTHON}:$gitdir/masterlens/python
+# setenv MYPTYHON {$MYPYTHON}:$CODEHOME/share/colorpro
+# setenv MYPYTHON {$MYPYTHON}:$gitdir/masterlens/python
 #
 #   Old python - Don't use anymore
 #   ------------------------------
@@ -254,14 +262,6 @@ setenv NUMERIX numpy
 
 # ESO P2PP tool varaibles
 setenv PATH ${PATH}:$CODEHOME/share/p2pp-3.3.1/bin
-
-## Pre-scisoft setup
-#if (! $?DYLD_LIBRARY_PATH) then
-#   setenv DYLD_LIBRARY_PATH /sw/lib
-#else
-#   setenv DYLD_LIBRARY_PATH ${DYLD_LIBRARY_PATH}:/sw/lib
-#endif
-#
 
 # IDL environment variables
 if (-e $home/Init_scripts/idlenv) then

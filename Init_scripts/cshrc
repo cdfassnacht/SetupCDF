@@ -59,13 +59,6 @@ set filec		  # Filename completion
                           #   resolved to contain no symbolic-link
                           #   components
 
-# Set prompt to give machine name and line number
-
-#set prompt=`hostname`'-\!: '  # Include command number for easy history use
-#set prompt=`uname -n | awk -F. '{print $1}'`\>\  # Awk-ward but decent prompt
-#set prompt="%m-%h: "
-set prompt=`hostname| awk -F. '{print $1}'`'-\!: '  # Include command number
-
 #-----------------------------------------------------------------------
 
 # Load environment variables
@@ -80,17 +73,19 @@ if ( -e $HOME/Init_scripts/alias ) then
    source $HOME/Init_scripts/alias
 endif
 
+# Set prompt to give machine name and line number
+
+#set prompt=`hostname`'-\!: '  # Include command number for easy history use
+#set prompt=`uname -n | awk -F. '{print $1}'`\>\  # Awk-ward but decent prompt
+#set prompt="%m-%h: "
+set prompt=`hostname| awk -F. '{print $1}'`'-\!: '  # Include command number
+
 #  This command executes a window initialization file wmfunc.  If you are
 #  not running SunView or X-windows, it does nothing.
 
 if ( -e $HOME/Init_scripts/wmfunc ) then
    source $HOME/Init_scripts/wmfunc
 endif
-#
-## Finally, setup by fink
-#
-
-test -r /sw/bin/init.csh && source /sw/bin/init.csh
 
 # Setting PATH for EPD-6.3-2
 # The orginal version is saved in .cshrc.pysave
@@ -108,11 +103,6 @@ setenv MYPATH {$PATH}
 setenv PYTHONPATH {$MYPYTHON}
 setenv PYTHONBIN {$PYBIN}
 setenv PATH {$PYTHONBIN}:{$MYPATH}
-
-# MacPorts Installer addition on 2019-08-22_at_16:43:21: adding an appropriate PATH variable for use with MacPorts.
-setenv PATH "/opt/local/bin:/opt/local/sbin:$PATH"
-# Finished adapting your PATH environment variable for use with MacPorts.
-
 
 # MacPorts Installer addition on 2020-02-18_at_15:58:55: adding an appropriate PATH variable for use with MacPorts.
 setenv PATH "/opt/local/bin:/opt/local/sbin:$PATH"

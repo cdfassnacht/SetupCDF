@@ -217,7 +217,7 @@ setenv PYTHONPKGS  $PYTHONSYS/lib/python2.7/site-packages
 #   ---------------------
 setenv ANACONDABIN $home/anaconda/bin
 setenv ANACONDAPKGS $home/anaconda/lib/python2.7/site-packages
-setenv DYLD_LIBRARY_PATH ${DYLD_LIBRARY_PATH}:$home/anaconda/lib
+# setenv DYLD_LIBRARY_PATH ${DYLD_LIBRARY_PATH}:$home/anaconda/lib
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 if ( -f "/opt/anaconda3/etc/profile.d/conda.csh" ) then

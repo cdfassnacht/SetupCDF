@@ -62,7 +62,6 @@ set filec		  # Filename completion
 #-----------------------------------------------------------------------
 
 # Load environment variables
-
 if ( -e $HOME/Init_scripts/setenv ) then
    source $HOME/Init_scripts/setenv
 endif
@@ -77,8 +76,8 @@ endif
 
 #set prompt=`hostname`'-\!: '  # Include command number for easy history use
 #set prompt=`uname -n | awk -F. '{print $1}'`\>\  # Awk-ward but decent prompt
-#set prompt="%m-%h: "
-set prompt=`hostname| awk -F. '{print $1}'`'-\!: '  # Include command number
+set prompt="%m-%h: "
+#set prompt=`hostname| awk -F. '{print $1}'`'-\!: '  # Include command number
 
 #  This command executes a window initialization file wmfunc.  If you are
 #  not running SunView or X-windows, it does nothing.

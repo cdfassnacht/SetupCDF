@@ -41,6 +41,7 @@ switch ("`uname -s`")
       set osswitch = "linux"
       setenv OSBIN $home/bin/Linux
       setenv OSLIB $home/lib/Linux
+      setenv IRAFARCH linux
       #setenv PGPLOT_DIR $home/pgplot/Linux
       setenv PGPLOT_DIR /usr/local/pgplot
       breaksw
@@ -337,6 +338,7 @@ setenv MONMOD /home/cdf/Lensmon/Models
 #setenv AIPS_MSG_EMULATOR xterm
 
 # IRAF variables (Note: old IRAF setup at end of this file)
+setenv iraf $home/anaconda3/envs/iraf27/iraf/
 setenv crrefer $hst
 setenv iref $hst/iref/
 setenv jref $hst/jref/

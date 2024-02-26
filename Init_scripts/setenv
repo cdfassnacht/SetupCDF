@@ -46,7 +46,7 @@ switch ("`uname -s`")
       setenv PGPLOT_DIR /usr/local/pgplot
       breaksw
    case Darwin:
-      setenv TERM xterm-color
+      #setenv TERM xterm-color
       #setenv PGPLOT_DIR $home/pgplot/macosx
       #setenv PGPLOT_DIR /usr/local/pgplot
       if (! $?DYLD_LIBRARY_PATH) then
@@ -338,7 +338,7 @@ setenv MONMOD /home/cdf/Lensmon/Models
 #setenv AIPS_MSG_EMULATOR xterm
 
 # IRAF variables (Note: old IRAF setup at end of this file)
-setenv iraf $home/anaconda3/envs/iraf27/iraf/
+# setenv iraf $home/anaconda3/envs/iraf27/iraf/
 setenv crrefer $hst
 setenv iref $hst/iref/
 setenv jref $hst/jref/

@@ -115,6 +115,7 @@ alias lsall	'ls -Fa'            # Show all files, indicate file type
 alias lsdot	ls -aFd .\*
 #alias lldot ls -ald .\*
 alias pdflatex_with_bib	"$gitdir/CodeCDF/scripts/pdflatex_with_bib.sh"
+alias pelshell  "srun -A fassnachgrp -p p-fassnacht -t 6000 -c 10 --pty tcsh"
 alias qfits	"/Applications/QFitsView.app/Contents/MacOS/QFitsView"
 alias quickdisp		"python $gitdir/specim/specim/imfuncs/quickdisp.py"
 alias run_pdflatex	"$gitdir/CodeCDF/scripts/run_pdflatex.sh"

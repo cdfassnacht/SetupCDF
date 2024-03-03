@@ -341,7 +341,7 @@ switch ("`uname -s`")
    case Linux:
       setenv iraf $home/anaconda3/envs/iraf27/iraf/
       setenv IRAFARCH linux
-      setenv irafsetup $iraf/bin/setup_iraf.csh
+      setenv irafsetup $home/anaconda3/envs/iraf27/bin/setup_iraf.csh
       breaksw
    case Darwin:
       setenv iraf /Applications/IRAF.app/Contents/iraf-v218/

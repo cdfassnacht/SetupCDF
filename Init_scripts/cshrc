@@ -106,11 +106,3 @@ setenv PATH {$PYTHONBIN}:{$MYPATH}
 # MacPorts Installer addition on 2020-02-18_at_15:58:55: adding an appropriate PATH variable for use with MacPorts.
 setenv PATH "/opt/local/bin:/opt/local/sbin:$PATH"
 # Finished adapting your PATH environment variable for use with MacPorts.
-
-
-# Add iraf setup commands
-if ( -e /Users/cdf/.iraf/setup.csh ) then
-    setenv iraf /Applications/IRAF.app/Contents/iraf-v218/
-    setenv IRAFARCH macintel
-    source /Users/cdf/.iraf/setup.csh
-endif

@@ -41,7 +41,6 @@ switch ("`uname -s`")
       set osswitch = "linux"
       setenv OSBIN $home/bin/Linux
       setenv OSLIB $home/lib/Linux
-      setenv IRAFARCH linux
       #setenv PGPLOT_DIR $home/pgplot/Linux
       setenv PGPLOT_DIR /usr/local/pgplot
       breaksw
@@ -338,7 +337,42 @@ setenv MONMOD /home/cdf/Lensmon/Models
 #setenv AIPS_MSG_EMULATOR xterm
 
 # IRAF variables (Note: old IRAF setup at end of this file)
-# setenv iraf $home/anaconda3/envs/iraf27/iraf/
+switch ("`uname -s`")
+   case Linux:
+      setenv iraf $home/anaconda3/envs/iraf27/iraf/
+      setenv IRAFARCH linux
+      setenv irafsetup $iraf/bin/setup_iraf.csh
+      breaksw
+   case Darwin:
+      setenv iraf /Applications/IRAF.app/Contents/iraf-v218/
+      switch ("`printenv MACHTYPE`")
+         case powerpc:
+	    setenv IRAFARCH macosx
+            breaksw
+         case i*86:
+	    setenv IRAFARCH macintel
+            breaksw
+	 case x86_64:
+	    setenv IRAFARCH macintel
+	    setenv irafsetup /Users/cdf/.iraf/setup.csh
+            breaksw
+	 default:
+            echo "Mac system but unknown MACHTYPE"
+      endsw
+      breaksw
+   default:
+      echo ""
+      echo "Unknown system type.  Cannot set iraf variables"
+      echo ""
+      breaksw
+endsw
+if ( -e $irafsetup ) then
+   source $irafsetup
+else
+   echo ""
+   echo "No iraf setup file found"
+   echo ""
+endif
 setenv crrefer $hst
 setenv iref $hst/iref/
 setenv jref $hst/jref/

@@ -368,10 +368,10 @@ switch ("`uname -s`")
 endsw
 if ( -e $irafsetup ) then
    source $irafsetup
-else
-   echo ""
-   echo "No iraf setup file found"
-   echo ""
+#else
+#   echo ""
+#   echo "No iraf setup file found"
+#   echo ""
 endif
 setenv crrefer $hst
 setenv iref $hst/iref/

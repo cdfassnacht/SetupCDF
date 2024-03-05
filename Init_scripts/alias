@@ -18,6 +18,7 @@ switch ("`uname -s`")
       alias ls "ls --color=tty"
       breaksw
    case Darwin:
+      alias emacs	 /Applications/Emacs.app/Contents/MacOS/Emacs
       alias ls "ls -G"  # Also needs TERM and LSCOLORS (both set in setenv)
       unalias sm
       set mysm = `which sm`
@@ -85,7 +86,6 @@ alias cr_summary "python $gitdir/ccdredux/ccdredux/cr_summary.py"
 alias deactivate "source deactivate; exit"
 #alias dif	"~mcs/new/difmap"
 #alias difmap    /opt/local/caltech/difmap
-alias emacs	 /Applications/Emacs.app/Contents/MacOS/Emacs
 alias enscript	"enscript -M Letter"
 alias f		"finger"
 alias ff        "find . -name '\!-0:1' -exec ls -ldaF {} \;"

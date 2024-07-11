@@ -122,6 +122,7 @@ alias run_pdflatex	"$gitdir/CodeCDF/scripts/run_pdflatex.sh"
 alias remap     "xmodmap ~/.xmodmaprc"
 alias rmcln	"rm *~ .*~; ls -aF"
 alias sharp_cutout "python $gitdir/SHARP/python/sharp_cutout.py"
+alias split_hla "python $gitdir/CodeCDF/python/split_hla.py"
 alias startx8   "startx -- -bpp 8"
 alias xbiff     'xbiff -g 48x48+851+0 -bg "BlueViolet" &'
 alias texcln	"rm *.{log,dvi,aux,blg,nav,toc,snm} *~; ls -aF"

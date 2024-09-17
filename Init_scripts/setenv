@@ -133,6 +133,7 @@ setenv sharpproj  $sharp/Project
 setenv sharpredux $sharp/Redux
 setenv sharpgit   $gitdir/SHARP/
 setenv sharpbox   $sharpdat/Box
+setenv sharpdrop  $home/Dropbox/Sharp_lenses
 
 # Classes, including some git setup
 setenv classes    $home/Classes

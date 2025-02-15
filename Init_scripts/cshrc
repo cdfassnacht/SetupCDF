@@ -86,13 +86,6 @@ if ( -e $HOME/Init_scripts/wmfunc ) then
    source $HOME/Init_scripts/wmfunc
 endif
 
-# Setting PATH for EPD-6.3-2
-# The orginal version is saved in .cshrc.pysave
-#set path=(/Library/Frameworks/Python.framework/Versions/Current/bin $path)
-
-alias ur_setup 'eval `/Users/cdf/.ureka/ur_setup -csh \!*`'
-alias ur_forget 'eval `/Users/cdf/.ureka/ur_forget -csh \!*`'
-
 # Re-set the temporary path variable
 setenv MYPATH {$PATH}
 
@@ -104,5 +97,7 @@ setenv PYTHONBIN {$PYBIN}
 setenv PATH {$PYTHONBIN}:{$MYPATH}
 
 # MacPorts Installer addition on 2020-02-18_at_15:58:55: adding an appropriate PATH variable for use with MacPorts.
-setenv PATH "/opt/local/bin:/opt/local/sbin:$PATH"
+if ( -e /opt/local ) then
+    setenv PATH "/opt/local/bin:/opt/local/sbin:$PATH"
+endif
 # Finished adapting your PATH environment variable for use with MacPorts.

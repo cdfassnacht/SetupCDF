@@ -184,7 +184,9 @@ setenv AB922   $lensmon/ab922/Reduc
 
 # TeX setup
 #setenv PATH    ${PATH}:/usr/texbin
-setenv PATH    ${PATH}:/Library/TeX/texbin
+if (-e /Library/Tex/texbin) then
+ setenv PATH    ${PATH}:/Library/TeX/texbin
+endif
 
 # CVS setup
 setenv CVS_RSH ssh
@@ -208,33 +210,24 @@ setenv SLADIR    $CODEHOME/src/slalib/
 setenv PYTHONSYS   /Library/Frameworks/Python.framework/Versions/Current
 setenv PYTHONSYSBIN $PYTHONSYS/bin
 setenv PYTHONPKGS  $PYTHONSYS/lib/python2.7/site-packages
-#
-#   Enthought Canopy python setup
-#   -----------------------------
-#setenv EPDBIN	$home/canopy/bin
-#setenv EPDPKGS	
-#
+
+
 #   Anaconda python setup
 #   ---------------------
-setenv ANACONDABIN $home/anaconda/bin
-setenv ANACONDAPKGS $home/anaconda/lib/python2.7/site-packages
-# setenv DYLD_LIBRARY_PATH ${DYLD_LIBRARY_PATH}:$home/anaconda/lib
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-if ( -f "$home/anaconda3/etc/profile.d/conda.csh" ) then
-    source "$home/anaconda3/etc/profile.d/conda.csh"
-else
-    setenv PATH "$home/anaconda3/bin:$PATH"
+if (-e $home/anaconda) then
+   setenv ANACONDABIN $home/anaconda/bin
+   setenv ANACONDAPKGS $home/anaconda/lib/python2.7/site-packages
+   # setenv DYLD_LIBRARY_PATH ${DYLD_LIBRARY_PATH}:$home/anaconda/lib
+   # >>> conda initialize >>>
+   # !! Contents within this block are managed by 'conda init' !!
+   if ( -f "$home/anaconda/etc/profile.d/conda.csh" ) then
+       source "$home/anaconda/etc/profile.d/conda.csh"
+    else
+       setenv PATH "$home/anaconda/bin:$PATH"
+    endif
 endif
-# <<< conda initialize <<<
-# if ( -f "/opt/anaconda3/etc/profile.d/conda.csh" ) then
-#     source "/opt/anaconda3/etc/profile.d/conda.csh"
-# endif
-#
-#   Ureka python setup
-#   ------------------
-setenv URPYTHON $home/Ureka/variants/common/lib/python2.7/site-packages
-#
+
+
 #   My python packages
 #   ------------------
 setenv MYPYTHON $gitdir/CodeCDF/python
@@ -262,7 +255,9 @@ setenv PYBIN {$ANACONDABIN}
 setenv NUMERIX numpy
 
 # ESO P2PP tool varaibles
-setenv PATH ${PATH}:$CODEHOME/share/p2pp-3.3.1/bin
+if (-e $CODEHOME/share/p2pp-3.3.1) then
+   setenv PATH ${PATH}:$CODEHOME/share/p2pp-3.3.1/bin
+endif
 
 # IDL environment variables
 if (-e $home/Init_scripts/idlenv) then
@@ -279,7 +274,9 @@ setenv OSIRIS_VERBOSE 0
 if (-e $OSIRIS_ROOT/scripts/osirisSetup.csh) then
    source $OSIRIS_ROOT/scripts/osirisSetup.csh
 endif
-setenv PATH ${PATH}:${OSIRIS_ROOT}/scripts
+if (-e $OSIRIS_ROOT/scripts ) then
+   setenv PATH ${PATH}:${OSIRIS_ROOT}/scripts
+endif
 
 # colorpro environment variables
 setenv COLORPRO {$CODEHOME}/share/colorpro
@@ -288,30 +285,38 @@ setenv SEXSEG $COLORPRO
 alias sexseg "python $SEXSEG/sexseg.py"
 
 # acsproc environment variables
-setenv PATH $gitdir/CodeCDF/idl/acsproc:${PATH}
-setenv IDL_PATH $gitdir/CodeCDF/idl/acsproc:${IDL_PATH}
-setenv HST_DIR $sharpdat
-setenv HST_DATAROOT $sharpdat
-setenv HST_PSFDIR $sharpdat/acs_psf
-alias acsproc 'idl -e "acsproc"'
+if (-e $gitdir/CodeCDF/idl/acsproc ) then
+   setenv PATH $gitdir/CodeCDF/idl/acsproc:${PATH}
+   setenv IDL_PATH $gitdir/CodeCDF/idl/acsproc:${IDL_PATH}
+   setenv HST_DIR $sharpdat
+   setenv HST_DATAROOT $sharpdat
+   setenv HST_PSFDIR $sharpdat/acs_psf
+   alias acsproc 'idl -e "acsproc"'
+endif
 
 # HAGGLES environment variables
 setenv HAGGLES_DATA_DIR ${DATA_DIR}/Haggles/
 setenv SHAGGLES_DIR ${WORK_DIR}/shaggles
-setenv PATH ${PATH}:${SHAGGLES_DIR}/bin
-setenv IDL_PATH ${IDL_PATH}:${SHAGGLES_DIR}/pro
+if (-e $SHAGGLES_DIR ) then
+   setenv PATH ${PATH}:${SHAGGLES_DIR}/bin
+   setenv IDL_PATH ${IDL_PATH}:${SHAGGLES_DIR}/pro
+endif
 
 # SCRIPTUTILS environment variables
 setenv SCRIPTUTILS_DIR ${WORK_DIR}/scriptutils
-setenv PATH ${PATH}:${SCRIPTUTILS_DIR}/bin
+if (-e $SCRIPTUTILS_DIR ) then
+   setenv PATH ${PATH}:${SCRIPTUTILS_DIR}/bin
+endif
 
 # B1608 ACS environment variables
 setenv B1608_DIR ${WORK_DIR}/1608_ACS
 
 # SDFRED2 (SuprimeCam reduction package) variables
-setenv PATH ${PATH}:$CODEHOME/share/sdfred20130924_mf2/bin
-# setenv LANG C
-# setenv LC_ALL C
+if (-e $CODEHOME/share/sdfred20130924_mf2/bin ) then
+   setenv PATH ${PATH}:$CODEHOME/share/sdfred20130924_mf2/bin
+   # setenv LANG C
+   # setenv LC_ALL C
+endif
 
 # PGPLOT environment variables
 setenv LD_LIBRARY_PATH ${LD_LIBRARY_PATH}:${PGPLOT_DIR}

@@ -67,13 +67,6 @@ alias ftpweb1   "sftp fassnach@web1.physics.ucdavis.edu"
 
 # Python/Ureka aliases
 alias ipy       "ipython --pylab"
-# alias ureka     "ur_setup; setenv PYTHONPATH {$MYPYTHON}:{$URPYTHON}"
-# alias ureka_forget "ur_forget; setenv PYTHONPATH {$MYPYTHON}:{$PYTHONPKGS}"
-# alias set_anaconda "setenv MYPATH {$PATH}; setenv PATH {$ANACONDABIN}:{$PATH}; setenv PYTHONPATH {$MYPYTHON}:{$ANACONDAPKGS}"
-alias set_anaconda "setenv MYPATH {$PATH}; setenv PATH {$ANACONDABIN}:{$PATH}; setenv PYTHONPATH {$MYPYTHON}"
-# alias unset_anaconda "setenv PATH {$MYPATH}; setenv PYTHONPATH {$MYPYTHON}:{$PYTHONPKGS}"
-alias unset_anaconda "setenv PATH {$MYPATH}; setenv PYTHONPATH {$MYPYTHON}"
-alias set_syspy "setenv PATH {$PYTHONSYSBIN}:{$PATH}; setenv PYTHONPATH {$MYPYTHON}:{$PYTHONPKGS}"
 
 # General aliases
 alias aipsemacs "emacs -g 140x45+0+10 &"

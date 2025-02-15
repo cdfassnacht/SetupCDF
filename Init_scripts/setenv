@@ -223,7 +223,7 @@ if (-e $home/anaconda) then
    if ( -f "$home/anaconda/etc/profile.d/conda.csh" ) then
        source "$home/anaconda/etc/profile.d/conda.csh"
     else
-       setenv PATH "$home/anaconda/bin:$PATH"
+       setenv PATH "$ANACONDABIN:$PATH"
     endif
 endif
 
@@ -250,7 +250,7 @@ setenv MYPYTHON {$MYPYTHON}:$CODEHOME/python
 #   Set up the default version - see the cshrc file  
 #   -----------------------------------------------
 #   *** To change this, use the relevant aliases in the alias file ***
-setenv PYBIN {$ANACONDABIN}
+#setenv PYBIN {$ANACONDABIN}
 #setenv PYPKGS {$ANACONDAPKGS}
 setenv NUMERIX numpy
 

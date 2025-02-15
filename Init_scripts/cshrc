@@ -91,9 +91,9 @@ setenv MYPATH {$PATH}
 
 # Set the default python path.  To change, use the relevant commands that are
 # defined in the alias file (e.g., set_anaconda)
-#setenv PYTHONPATH {$MYPYTHON}:{$PYPKGS}
 setenv PYTHONPATH {$MYPYTHON}
-setenv PYTHONBIN {$PYBIN}
+#setenv PYTHONBIN {$PYBIN}
+#setenv PATH {$PYTHONBIN}:{$MYPATH}
 setenv PATH {$PYTHONBIN}:{$MYPATH}
 
 # MacPorts Installer addition on 2020-02-18_at_15:58:55: adding an appropriate PATH variable for use with MacPorts.

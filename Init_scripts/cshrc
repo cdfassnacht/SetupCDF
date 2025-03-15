@@ -93,8 +93,11 @@ setenv MYPATH {$PATH}
 # defined in the alias file (e.g., set_anaconda)
 setenv PYTHONPATH {$MYPYTHON}
 #setenv PYTHONBIN {$PYBIN}
-#setenv PATH {$PYTHONBIN}:{$MYPATH}
-setenv PATH {$MYPATH}
+if ($?PYBIN) then
+    setenv PATH {$PYBIN}:{$MYPATH}
+else
+    setenv PATH {$MYPATH}
+endif
 
 # MacPorts Installer addition on 2020-02-18_at_15:58:55: adding an appropriate PATH variable for use with MacPorts.
 if ( -e /opt/local ) then

@@ -76,7 +76,7 @@ switch ("`uname -s`")
             setenv PGPLOT_DIR /usr/local/pgplot
             setenv DYLD_LIBRARY_PATH ${DYLD_LIBRARY_PATH}:/usr/local/pgplot
 	    setenv DYLD_LIBRARY_PATH ${DYLD_LIBRARY_PATH}:$home/Code/share/Simos_code/gsl-1.11/lib
-            setenv SEXTRACTOR /usr/local/sextractor/
+            setenv SEXTRACTOR $home/Code/share/sextractor_gen/
             breaksw
 	 default:
             echo "Mac system but unknown MACHTYPE"

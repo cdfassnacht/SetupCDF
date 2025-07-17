@@ -104,3 +104,12 @@ if ( -e /opt/local ) then
     setenv PATH "/opt/local/bin:/opt/local/sbin:$PATH"
 endif
 # Finished adapting your PATH environment variable for use with MacPorts.
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+if ( -f "/cvmfs/hpc.ucdavis.edu/sw/conda/root/etc/profile.d/conda.csh" ) then
+    source "/cvmfs/hpc.ucdavis.edu/sw/conda/root/etc/profile.d/conda.csh"
+else
+    setenv PATH "/cvmfs/hpc.ucdavis.edu/sw/conda/root/bin:$PATH"
+endif
+# <<< conda initialize <<<

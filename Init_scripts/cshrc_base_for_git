@@ -1,0 +1,106 @@
+#!/bin/tcsh
+# Standard .tcshrc file 
+#
+# Prepared for NRAO VMS->UNIX migration. Ruth Milner, May 1990.
+# Modified for Solaris 1 -> Solaris 2 migration. Ruth Milner, April 1994.
+#
+
+#
+# First, determine if we are an interactive process with a tty. Sourced
+# files will make use of this, as will this file.
+#
+ 
+if ( $?prompt ) then           # "prompt" is set if shell has a tty
+   set interact = 1
+else
+   set interact = 0
+#   alias echo /bin/true        # echoing to non-tty may cause process to fail
+endif
+ 
+# Initial shell settings
+ 
+set noclobber   # Be safe and don't overwrite existing files
+                #   with > redirection (comment out if you wish)
+umask 22        # Default file protection: owner can do anything,
+                #   group can read/execute, others can read/execute
+set ignoreeof   # Don't allow shell exit using control-D
+ 
+#-------------------------------------------------------------------------
+#
+# Now do stuff that is only safe and/or useful for interactive processes
+# which have a terminal associated with them.
+#
+ 
+#if ( ! $interact ) then       # not interactive, don't do any of the rest 
+#   unalias echo
+#   exit 0
+#endif
+ 
+# tcsh-specific initialisation.
+if ($?tcsh) then
+	set correct=cmd
+	set matchbeep=nomatch	# only beep on error
+	set nobeep
+	set autolist
+	set rmstar
+	unset autologout
+endif
+
+# More shell settings
+ 
+limit coredumpsize 0      # No core dumps, please
+limit stacksize unlimited # Needed to get rid of memory errors in IRAF
+set autologout = 0        # Don't kill idle windows
+set history = 256         # Store 128 most recent commands for recall
+set notify                # Notify of background job status
+set savehist=50		  # How many commands to save at logout (~/.history)
+set filec		  # Filename completion
+#set hardpaths            # If set, pathnames in the directory stack are
+                          #   resolved to contain no symbolic-link
+                          #   components
+
+#-----------------------------------------------------------------------
+
+# Load environment variables
+if ( -e $HOME/Init_scripts/setenv ) then
+   source $HOME/Init_scripts/setenv
+endif
+
+# Load aliases
+
+if ( -e $HOME/Init_scripts/alias ) then
+   source $HOME/Init_scripts/alias
+endif
+
+# Set prompt to give machine name and line number
+
+#set prompt=`hostname`'-\!: '  # Include command number for easy history use
+#set prompt=`uname -n | awk -F. '{print $1}'`\>\  # Awk-ward but decent prompt
+set prompt="%m-%h: "
+#set prompt=`hostname| awk -F. '{print $1}'`'-\!: '  # Include command number
+
+#  This command executes a window initialization file wmfunc.  If you are
+#  not running SunView or X-windows, it does nothing.
+
+if ( -e $HOME/Init_scripts/wmfunc ) then
+   source $HOME/Init_scripts/wmfunc
+endif
+
+# Re-set the temporary path variable
+setenv MYPATH {$PATH}
+
+# Set the default python path.  To change, use the relevant commands that are
+# defined in the alias file (e.g., set_anaconda)
+setenv PYTHONPATH {$MYPYTHON}
+#setenv PYTHONBIN {$PYBIN}
+if ($?PYBIN) then
+    setenv PATH {$PYBIN}:{$MYPATH}
+else
+    setenv PATH {$MYPATH}
+endif
+
+# MacPorts Installer addition on 2020-02-18_at_15:58:55: adding an appropriate PATH variable for use with MacPorts.
+if ( -e /opt/local ) then
+    setenv PATH "/opt/local/bin:/opt/local/sbin:$PATH"
+endif
+# Finished adapting your PATH environment variable for use with MacPorts.

@@ -86,18 +86,9 @@ if ( -e $HOME/Init_scripts/wmfunc ) then
    source $HOME/Init_scripts/wmfunc
 endif
 
-# Re-set the temporary path variable
-setenv MYPATH {$PATH}
-
-# Set the default python path.  To change, use the relevant commands that are
-# defined in the alias file (e.g., set_anaconda)
+# Set the python path for local code (as opposed to code in site-packages).
 setenv PYTHONPATH {$MYPYTHON}
 #setenv PYTHONBIN {$PYBIN}
-if ($?PYBIN) then
-    setenv PATH {$PYBIN}:{$MYPATH}
-else
-    setenv PATH {$MYPATH}
-endif
 
 # MacPorts Installer addition on 2020-02-18_at_15:58:55: adding an appropriate PATH variable for use with MacPorts.
 if ( -e /opt/local ) then
@@ -105,11 +96,28 @@ if ( -e /opt/local ) then
 endif
 # Finished adapting your PATH environment variable for use with MacPorts.
 
+# Set up for conda and python based on whether or not there is an anaconda
+#  directory in the hone directory
+# The second option, with the hpc.ucdavis.edu in the path, will get invoked
+#  if (1) running on a HPC cluster at UCDavis and (2) if there is no
+#  anaconda directory in the home directory
+if (-e $home/anaconda) then
+   echo "found anaconda"
+   setenv PYBIN $home/anaconda/bin
+   set condacsh = $home/anaconda/etc/profile.d/conda.csh
+   # setenv ANACONDAPKGS $home/anaconda/lib/python2.7/site-packages
+   # setenv DYLD_LIBRARY_PATH ${DYLD_LIBRARY_PATH}:$home/anaconda/lib
+else if (-e /cvmfs/hpc.ucdavis.edu/sw/conda/root) then
+   echo "found ucdhpc conda"
+   setenv PYBIN /cvmfs/hpc.ucdavis.edu/sw/conda/root/bin
+   set condacsh = /cvmfs/hpc.ucdavis.edu/sw/conda/root/etc/profile.d/conda.csh
+endif
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-if ( -f "/cvmfs/hpc.ucdavis.edu/sw/conda/root/etc/profile.d/conda.csh" ) then
-    source "/cvmfs/hpc.ucdavis.edu/sw/conda/root/etc/profile.d/conda.csh"
-else
-    setenv PATH "/cvmfs/hpc.ucdavis.edu/sw/conda/root/bin:$PATH"
+if ( -f $condacsh ) then
+    source $condacsh
+else if if ($?PYBIN) then
+    setenv PATH "$PYBIN:$PATH"
 endif
-# <<< conda initialize <<<
+# >>> conda initialize >>>

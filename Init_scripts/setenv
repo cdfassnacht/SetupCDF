@@ -211,22 +211,9 @@ setenv PYTHONSYS   /Library/Frameworks/Python.framework/Versions/Current
 setenv PYTHONSYSBIN $PYTHONSYS/bin
 setenv PYTHONPKGS  $PYTHONSYS/lib/python2.7/site-packages
 
-
 #   Anaconda python setup
 #   ---------------------
-if (-e $home/anaconda) then
-   setenv PYBIN $home/anaconda/bin
-   setenv ANACONDAPKGS $home/anaconda/lib/python2.7/site-packages
-   # setenv DYLD_LIBRARY_PATH ${DYLD_LIBRARY_PATH}:$home/anaconda/lib
-   # >>> conda initialize >>>
-   # !! Contents within this block are managed by 'conda init' !!
-   if ( -f "$home/anaconda/etc/profile.d/conda.csh" ) then
-       source "$home/anaconda/etc/profile.d/conda.csh"
-   else
-       setenv PATH "$PYBIN:$PATH"
-   endif
-endif
-
+#  This is now handled in the cshrc file
 
 #   My python packages
 #   ------------------
@@ -341,12 +328,12 @@ setenv RUNFIL /home/cdf/aips
 setenv MONMOD /home/cdf/Lensmon/Models
 #setenv AIPS_MSG_EMULATOR xterm
 
-# IRAF variables (Note: old IRAF setup at end of this file)
+# IRAF variables
 switch ("`uname -s`")
    case Linux:
-      setenv iraf $home/anaconda3/envs/iraf27/iraf/
       setenv IRAFARCH linux
-      setenv irafsetup $home/anaconda3/envs/iraf27/bin/setup_iraf.csh
+      # setenv iraf $home/anaconda3/envs/iraf27/iraf/
+      # setenv irafsetup $home/anaconda3/envs/iraf27/bin/setup_iraf.csh
       breaksw
    case Darwin:
       setenv iraf /Applications/IRAF.app/Contents/iraf-v218/
@@ -439,50 +426,6 @@ endsw
 
 setenv PATH ${OSBIN}:${gitdir}/CodeCDF/scripts:$home/Lenses/Scripts:/usr/local/bin:${PATH}
 setenv LD_LIBRARY_PATH ${LD_LIBRARY_PATH}:${OSLIB}
-
-##########################################################################
-#
-# Obsolete setups below here
-#
-##########################################################################
-
-# OBSOLETE IRAF setup
-# # Prepare things for IRAF
-# if ($?iraf) then
-#    set irafexists = 1
-# else
-#    set irafexists = 0
-#    if ( -e /usr/local/iraf ) then
-#       setenv iraf /usr/local/iraf/iraf/
-#       if (-f ${iraf}/unix/hlib/irafuser.csh) then
-#          source ${iraf}/unix/hlib/irafuser.csh
-#          set irafexists = 1
-#       endif
-#    endif
-# endif
-# if ($irafexists) then
-#    echo "Setting up for IRAF"
-#    setenv IRAFHLIBD $hbin
-#    switch ("`uname -s`")
-#       case SunOS:
-#          switch ("`uname -r`")
-#             case 4.*:
-#                setenv IRAFLIBD  $iraf/bin.sparc
-#                breaksw
-#             case 5.*:
-#                setenv IRAFLIBD  $iraf/bin.ssun
-#                breaksw
-#          endsw
-#       default:
-#          setenv IRAFLIBD $iraf/bin.$MACH
-#          breaksw
-#    endsw
-# endif
-#setenv IRAFLIB "$IRAFLIBD/libimfort.a $IRAFLIBD/libsys.a $IRAFLIBD/libvops.a $IRAFHLIBD/libos.a"
-# set nicred =  /home/cdf/iraf/Nicred
-# set path = ($path $nicred)
-# setenv NICMOSCALIB ${nicred}/Marcia
-# setenv irafphot $home/iraf/Photometry/
 
 # Finally, set a temporary path variable
 setenv MYPATH {$PATH}
